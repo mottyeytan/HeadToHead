@@ -4,51 +4,35 @@ import { socketService } from "../services/socketService";
 import { Socket } from "socket.io-client";
 
 export const useSocket = () => {
-    const [isConnected, setIsConnected] = useState<boolean>(false);
-    const [socket, setSocket] = useState<Socket | null>(null);
     const socketRef = useRef<Socket | null>(null);
+    const [isConnected, setIsConnected] = useState(false);
 
     useEffect(() => {
         if (!socketRef.current) {
             socketRef.current = socketService.connect();
         }
 
-        const sock = socketRef.current;
-        setSocket(sock);
+        const socket = socketRef.current;
 
-        const handleConnect = () => setIsConnected(true);
-        const handleDisconnect = () => setIsConnected(false);
+        const onConnect = () => setIsConnected(true);
+        const onDisconnect = () => setIsConnected(false);
 
-        sock.on("connect", handleConnect);
-        sock.on("disconnect", handleDisconnect);
+        socket.on("connect", onConnect);
+        socket.on("disconnect", onDisconnect);
 
-        // בדיקה מיידית אם כבר מחובר
-        if (sock.connected) {
+        // אם כבר מחובר בזמן ההרשמה
+        if (socket.connected) {
             setIsConnected(true);
         }
 
-        // בדיקה נוספת אחרי delay קטן (לטיפול ב-race condition)
-        const timeoutId = setTimeout(() => {
-            if (sock.connected) setIsConnected(true);
-        }, 100);
-
         return () => {
-            clearTimeout(timeoutId);
-            sock.off("connect", handleConnect);
-            sock.off("disconnect", handleDisconnect);
+            socket.off("connect", onConnect);
+            socket.off("disconnect", onDisconnect);
         };
     }, []);
 
-    // בדיקה מחזורית של מצב החיבור
-    useEffect(() => {
-        const intervalId = setInterval(() => {
-            if (socketRef.current?.connected && !isConnected) {
-                setIsConnected(true);
-            }
-        }, 500);
-
-        return () => clearInterval(intervalId);
-    }, [isConnected]);
-
-    return { isConnected, socket };
+    return {
+        socket: socketRef.current,
+        isConnected,
+    };
 };

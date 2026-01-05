@@ -1,12 +1,10 @@
 import { Box, Typography, Button, CircularProgress } from "@mui/material";
-import { useEffect, useState, useRef } from "react";
+import { useEffect } from "react";
 import GroupIcon from '@mui/icons-material/Group';
 import PersonIcon from '@mui/icons-material/Person';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
-import { useSocket } from "../../../socket/hooks/useSocket";
-import { SocketEvents } from "../../../../../../shared/events/socketEvents";
-import type { Player } from "../../types/game.types";
+import { useRoom } from "../hooks/useRoom";
 
 interface RoomProps {
     gameId: string;
@@ -15,94 +13,21 @@ interface RoomProps {
     onLeaveRoom?: () => void;
 }
 
+
 export const Room = ({ gameId, playerName, onStartGame, onLeaveRoom }: RoomProps) => {
-    const { socket, isConnected } = useSocket();
-    const [players, setPlayers] = useState<Player[]>([]);
-    const [isJoining, setIsJoining] = useState(true);
-    const [error, setError] = useState<string | null>(null);
-    const hasJoined = useRef(false);
+    const { players, error, isInRoom, canStartGame, leaveRoom } = useRoom({ roomId: gameId, playerName });
 
-    const canStartGame = players.length >= 2;
-
-    // הצטרפות לחדר
+    // leave room when the component is unmounted
     useEffect(() => {
-        if (!socket || !isConnected || !gameId || !playerName) return;
-        if (hasJoined.current) return;
-
-        socket.emit(SocketEvents.JOIN_ROOM, { roomId: gameId, playerName });
-        hasJoined.current = true;
-        setIsJoining(false);
-
-    }, [socket, isConnected, gameId, playerName]);
-
-    // יציאה מהחדר כשסוגרים את החלון (תומך גם במובייל)
-    useEffect(() => {
-        const leaveRoom = () => {
-            if (socket && hasJoined.current) {
-                socket.emit(SocketEvents.LEAVE_ROOM, { roomId: gameId });
-                hasJoined.current = false;
-            }
-        };
-
-        // Desktop - beforeunload
-        const handleBeforeUnload = () => leaveRoom();
-
-        // Mobile - pagehide (יותר אמין במובייל כשסוגרים טאב)
-        const handlePageHide = (event: PageTransitionEvent) => {
-            // persisted = false אומר שהדף באמת נסגר (לא בcache)
-            if (!event.persisted) {
-                leaveRoom();
-            }
-        };
-
-        window.addEventListener("beforeunload", handleBeforeUnload);
-        window.addEventListener("pagehide", handlePageHide);
-
-        return () => {
-            window.removeEventListener("beforeunload", handleBeforeUnload);
-            window.removeEventListener("pagehide", handlePageHide);
-            // יציאה מהחדר כשהקומפוננטה נהרסת
-            leaveRoom();
-        };
-    }, [socket, gameId]);
-
-    // האזנה לאירועים
-    useEffect(() => {
-        if (!socket) return;
-
-        const handlePlayersUpdated = (data: { players: Player[] }) => {
-            setPlayers(data.players);
-            setIsJoining(false);
-        };
-
-        const handleRoomError = ({ message }: { message: string }) => {
-            setError(message);
-            setIsJoining(false);
-        };
-
-        socket.on(SocketEvents.PLAYERS_UPDATED, handlePlayersUpdated);
-        socket.on(SocketEvents.ROOM_ERROR, handleRoomError);
-
-        return () => {
-            socket.off(SocketEvents.PLAYERS_UPDATED, handlePlayersUpdated);
-            socket.off(SocketEvents.ROOM_ERROR, handleRoomError);
-        };
-    }, [socket]);
-
-    const handleStartGame = () => {
-        if (!socket || !canStartGame) return;
-        socket.emit(SocketEvents.START_GAME, { roomId: gameId });
-        onStartGame?.();
-    };
+        return () => leaveRoom();
+    }, [leaveRoom]);
 
     const handleLeaveRoom = () => {
-        if (socket) {
-            socket.emit(SocketEvents.LEAVE_ROOM, { roomId: gameId });
-            hasJoined.current = false;
-        }
+        leaveRoom();
         onLeaveRoom?.();
     };
 
+   
     return (
         <Box sx={{
             backgroundColor: "rgba(30, 60, 30, 0.6)",
@@ -110,18 +35,16 @@ export const Room = ({ gameId, playerName, onStartGame, onLeaveRoom }: RoomProps
             borderRadius: "16px",
             padding: "20px",
         }}>
-            {/* כותרת */}
+            {/* title */}
             <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", mb: 2 }}>
                 <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
                     <GroupIcon sx={{ color: "#2ecc71", fontSize: "1.2rem" }} />
                     <Typography sx={{ color: "#fff", fontWeight: "bold" }}>
                         שחקנים בחדר ({players.length})
                     </Typography>
-                    {isJoining && (
-                        <CircularProgress size={16} sx={{ color: "#2ecc71", ml: 1 }} />
-                    )}
+                    
                 </Box>
-                {/* כפתור יציאה */}
+                {/* leave button */}
                 <Button
                     onClick={handleLeaveRoom}
                     size="small"
@@ -137,16 +60,16 @@ export const Room = ({ gameId, playerName, onStartGame, onLeaveRoom }: RoomProps
                 </Button>
             </Box>
 
-            {/* שגיאה */}
+            {/* error */}
             {error && (
                 <Typography sx={{ color: "#e74c3c", fontSize: "0.9rem", mb: 2 }}>
                     {error}
                 </Typography>
             )}
 
-            {/* רשימת שחקנים */}
+            {/* players list */}
             <Box sx={{ display: "flex", flexDirection: "column", gap: 1, mb: 3 }}>
-                {players.length === 0 && !isJoining ? (
+                {players.length === 0 && !isInRoom ? (
                     <Typography sx={{ color: "rgba(255,255,255,0.5)", textAlign: "center", py: 2 }}>
                         מחכה לשחקנים...
                     </Typography>
@@ -183,7 +106,7 @@ export const Room = ({ gameId, playerName, onStartGame, onLeaveRoom }: RoomProps
                 )}
             </Box>
 
-            {/* ממתין לשחקנים או כפתור התחל */}
+            {/* waiting for players or start button */}
             {!canStartGame ? (
                 <Box sx={{ 
                     display: "flex", 
@@ -201,7 +124,7 @@ export const Room = ({ gameId, playerName, onStartGame, onLeaveRoom }: RoomProps
             ) : (
                 <Button
                     variant="contained"
-                    onClick={handleStartGame}
+                    onClick={onStartGame}
                     fullWidth
                     endIcon={<PlayArrowIcon />}
                     sx={{

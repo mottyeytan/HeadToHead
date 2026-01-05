@@ -2,15 +2,15 @@
 import { Server, Socket } from "socket.io";
 import { roomManager } from "../../rooms/roomManager";
 import { SocketEvents } from "../../../../shared/events/socketEvents";
+import { JoinRoomProps } from "../../../../shared/types/roomTypes";
 
 export const roomHandler = (io: Server, socket: Socket) => {
 
     // הצטרפות לחדר
-    socket.on(SocketEvents.JOIN_ROOM, ({ roomId, playerName }: { roomId: string, playerName: string }) => {
+    socket.on(SocketEvents.JOIN_ROOM, ({ roomId, playerName }: JoinRoomProps) => {
         console.log(`🎮 JOIN_ROOM: ${playerName} -> ${roomId}`);
         
         const room = roomManager.joinRoom(roomId, {
-            id: socket.id,
             name: playerName,
             socketId: socket.id,
         });

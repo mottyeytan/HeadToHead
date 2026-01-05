@@ -37,6 +37,12 @@ export const GameLobby = () => {
       localStorage.setItem("playerName", playerName);
     }
   };
+
+  const handelEnter = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      handlePlay();
+    }
+  };
   return (
     <Container maxWidth={false} sx={{ padding: "24px", maxWidth: "600px", margin: "0 auto", display: "flex", flexDirection: "column", gap: "24px", alignItems: "flex-start" }}>
       <ArrowBackIcon sx={{ fontSize: "1.5rem", color: "#fff", transform: "rotate(180deg)", alignSelf: "flex-start", cursor: "pointer" }} onClick={handleBack} />
@@ -57,6 +63,7 @@ export const GameLobby = () => {
         value={playerName}
         onChange={(e) => setPlayerName(e.target.value)}
         onBlur={handleBlur}
+        onKeyDown={handelEnter}
         sx={{
           py: 2,
           px: 3,
