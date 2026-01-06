@@ -19,5 +19,5 @@ const PORT = process.env.PORT || 3001;
 
 httpServer.listen(PORT,  () => {
   console.log(chalk.blue(`Server is running on port ${PORT}`));
-  console.log(chalk.green(` Socket.io ready`));
+  console.log(chalk.green(`Socket.io is ready`));
 });

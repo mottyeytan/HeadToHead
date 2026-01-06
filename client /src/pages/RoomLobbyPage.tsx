@@ -9,7 +9,6 @@ import { Room } from "../features/room/components/Room";
 import { GuestSection } from "../features/room/components/GuestSection";
 import { InviteSection } from "../features/room/components/InviteSection";
 
-// יצירת מזהה ייחודי לחדר
 const generateRoomId = () => {
     return Math.random().toString(36).substring(2, 8).toUpperCase();
 };
@@ -19,15 +18,12 @@ export const RoomLobbyPage = () => {
     const navigate = useNavigate();
     const game = games[gameId as keyof typeof games] || null;
     
-    // check if it is a guest (came from invite link with inviter name)
     const isGuest = !!inviterName;
     
-    // create unique roomId if not exists in URL (for new host)
     const roomId = useMemo(() => {
         return urlRoomId || generateRoomId();
     }, [urlRoomId]);
     
-    // if host and no roomId in URL - navigate to the address with the roomId
     useEffect(() => {
         if (!isGuest && !urlRoomId && gameId) {
             const newPath = routes.gameRoom
@@ -37,7 +33,6 @@ export const RoomLobbyPage = () => {
         }
     }, [isGuest, urlRoomId, gameId, roomId, navigate]);
     
-    // player name
     const hostName = inviterName || localStorage.getItem("playerName") || "אורח";
     const [guestName, setGuestName] = useState(isGuest ? "" : hostName);
     const [hasJoined, setHasJoined] = useState(false);

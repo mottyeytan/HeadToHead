@@ -1,0 +1,93 @@
+[
+  {
+    "id": "israel_history_1",
+    "text": "באיזו שנה הוכרזה מדינת ישראל?",
+    "correctAnswer": "1948",
+    "explanation": "מדינת ישראל הוכרזה ב-14 במאי 1948 על ידי דוד בן-גוריון",
+    "category": "israel_history",
+    "difficulty": "easy",
+    "acceptableAnswers": []
+  },
+  {
+    "id": "israel_history_2",
+    "text": "מי היה ראש הממשלה הראשון של ישראל?",
+    "correctAnswer": "דוד בן-גוריון",
+    "explanation": "בן-גוריון היה ראש הממשלה הראשון וגם שר הביטחון הראשון",
+    "category": "israel_history",
+    "difficulty": "easy",
+    "acceptableAnswers": ["בן גוריון", "David Ben-Gurion"]
+  },
+  {
+    "id": "israel_history_3",
+    "text": "באיזו מלחמה כבשה ישראל את ירושלים המזרחית?",
+    "correctAnswer": "מלחמת ששת הימים",
+    "explanation": "במלחמת ששת הימים ב-1967 כבשה ישראל את ירושלים המזרחית",
+    "category": "israel_history",
+    "difficulty": "easy",
+    "acceptableAnswers": ["ששת הימים", "1967"]
+  },
+  {
+    "id": "israel_history_4",
+    "text": "מי חתם על הסכם השלום עם מצרים מצד ישראל?",
+    "correctAnswer": "מנחם בגין",
+    "explanation": "בגין חתם עם סאדאת על הסכם קמפ דיוויד ב-1978",
+    "category": "israel_history",
+    "difficulty": "medium",
+    "acceptableAnswers": ["בגין", "Menachem Begin"]
+  },
+  {
+    "id": "israel_history_5",
+    "text": "באיזו שנה התרחשה מלחמת יום הכיפורים?",
+    "correctAnswer": "1973",
+    "explanation": "המלחמה פרצה ב-6 באוקטובר 1973, ביום כיפור",
+    "category": "israel_history",
+    "difficulty": "easy",
+    "acceptableAnswers": []
+  },
+  {
+    "id": "israel_history_6",
+    "text": "מי היה ראש הממשלה שנרצח ב-1995?",
+    "correctAnswer": "יצחק רבין",
+    "explanation": "רבין נרצח על ידי יגאל עמיר בעצרת בכיכר מלכי ישראל",
+    "category": "israel_history",
+    "difficulty": "easy",
+    "acceptableAnswers": ["רבין", "Yitzhak Rabin"]
+  },
+  {
+    "id": "israel_history_7",
+    "text": "מהו שמו של מבצע החילוץ באנטבה?",
+    "correctAnswer": "מבצע יונתן",
+    "explanation": "המבצע נקרא על שם יונתן נתניהו שנהרג במבצע ב-1976",
+    "category": "israel_history",
+    "difficulty": "medium",
+    "acceptableAnswers": ["יונתן", "מבצע אנטבה", "Operation Entebbe"]
+  },
+  {
+    "id": "israel_history_8",
+    "text": "מי כתב את המילים להמנון 'התקווה'?",
+    "correctAnswer": "נפתלי הרץ אימבר",
+    "explanation": "אימבר כתב את השיר ב-1878, הלחן הוא מנגינה עממית",
+    "category": "israel_history",
+    "difficulty": "hard",
+    "acceptableAnswers": ["אימבר", "נפתלי אימבר"]
+  },
+  {
+    "id": "israel_history_9",
+    "text": "באיזו עיר התקיים הקונגרס הציוני הראשון?",
+    "correctAnswer": "באזל",
+    "explanation": "הקונגרס התקיים בבאזל שבשווייץ ב-1897 בהנהגת הרצל",
+    "category": "israel_history",
+    "difficulty": "medium",
+    "acceptableAnswers": ["Basel", "בזל"]
+  },
+  {
+    "id": "israel_history_10",
+    "text": "מי היה הנשיא הראשון של מדינת ישראל?",
+    "correctAnswer": "חיים ויצמן",
+    "explanation": "חיים ויצמן היה נשיא ההסתדרות הציונית ונשיא המדינה הראשון",
+    "category": "israel_history",
+    "difficulty": "medium",
+    "acceptableAnswers": ["ויצמן", "Chaim Weizmann"]
+  }
+]
+

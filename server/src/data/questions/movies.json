@@ -1,0 +1,93 @@
+[
+  {
+    "id": "movies_1",
+    "text": "מהו שמו של השחקן שמגלם את ג'יימס בונד ב'קזינו רויאל'?",
+    "correctAnswer": "דניאל קרייג",
+    "explanation": "דניאל קרייג החל לגלם את בונד ב-2006 ב'קזינו רויאל'",
+    "category": "movies",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Daniel Craig", "קרייג"]
+  },
+  {
+    "id": "movies_2",
+    "text": "באיזו שנה יצא הסרט 'טיטאניק'?",
+    "correctAnswer": "1997",
+    "explanation": "הסרט בבימויו של ג'יימס קמרון יצא ב-1997 וזכה ב-11 פרסי אוסקר",
+    "category": "movies",
+    "difficulty": "medium",
+    "acceptableAnswers": []
+  },
+  {
+    "id": "movies_3",
+    "text": "מי ביים את טרילוגיית 'שר הטבעות'?",
+    "correctAnswer": "פיטר ג'קסון",
+    "explanation": "פיטר ג'קסון ביים את שלושת הסרטים בניו זילנד, 2001-2003",
+    "category": "movies",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Peter Jackson", "ג'קסון"]
+  },
+  {
+    "id": "movies_4",
+    "text": "מהו שם הדמות הראשית בסדרת 'הארי פוטר'?",
+    "correctAnswer": "הארי פוטר",
+    "explanation": "הארי פוטר הוא קוסם צעיר שמגלה את עולם הקסמים",
+    "category": "movies",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Harry Potter"]
+  },
+  {
+    "id": "movies_5",
+    "text": "איזה שחקן מגלם את איירון מן ביקום מארוול?",
+    "correctAnswer": "רוברט דאוני ג'וניור",
+    "explanation": "רוברט דאוני ג'וניור גילם את טוני סטארק מ-2008 עד 2019",
+    "category": "movies",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Robert Downey Jr", "דאוני", "רוברט דאוני"]
+  },
+  {
+    "id": "movies_6",
+    "text": "מהו הסרט הראשון של פיקסאר?",
+    "correctAnswer": "צעצוע של סיפור",
+    "explanation": "Toy Story יצא ב-1995 והיה סרט האנימציה הממוחשב הראשון",
+    "category": "movies",
+    "difficulty": "medium",
+    "acceptableAnswers": ["Toy Story", "טוי סטורי"]
+  },
+  {
+    "id": "movies_7",
+    "text": "מי אמר את המשפט 'אני אחזור'?",
+    "correctAnswer": "ארנולד שוורצנגר",
+    "explanation": "המשפט 'I'll be back' מהסרט 'שליחות קטלנית' (1984)",
+    "category": "movies",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Arnold Schwarzenegger", "שוורצנגר", "טרמינטור"]
+  },
+  {
+    "id": "movies_8",
+    "text": "באיזה סרט מופיע הציטוט 'יש לי הצעה שלא תוכל לסרב לה'?",
+    "correctAnswer": "הסנדק",
+    "explanation": "הציטוט המפורסם של דון קורליאונה מהסרט 'הסנדק' (1972)",
+    "category": "movies",
+    "difficulty": "medium",
+    "acceptableAnswers": ["The Godfather", "גודפאדר"]
+  },
+  {
+    "id": "movies_9",
+    "text": "מי ביים את הסרט 'פולפ פיקשן'?",
+    "correctAnswer": "קוונטין טרנטינו",
+    "explanation": "טרנטינו ביים את הסרט ב-1994 וזכה בפרס פאלם דור בקאן",
+    "category": "movies",
+    "difficulty": "medium",
+    "acceptableAnswers": ["Quentin Tarantino", "טרנטינו"]
+  },
+  {
+    "id": "movies_10",
+    "text": "מהו הסרט המצליח ביותר בקופות בכל הזמנים?",
+    "correctAnswer": "אווטאר",
+    "explanation": "אווטאר של ג'יימס קמרון הרוויח כמעט 3 מיליארד דולר",
+    "category": "movies",
+    "difficulty": "medium",
+    "acceptableAnswers": ["Avatar"]
+  }
+]
+

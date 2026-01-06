@@ -1,0 +1,93 @@
+[
+  {
+    "id": "football_1",
+    "text": "איזו מדינה זכתה הכי הרבה פעמים במונדיאל?",
+    "correctAnswer": "ברזיל",
+    "explanation": "ברזיל זכתה 5 פעמים - 1958, 1962, 1970, 1994, 2002",
+    "category": "football",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Brazil"]
+  },
+  {
+    "id": "football_2",
+    "text": "מי הוא מלך השערים בהיסטוריה של ליגת האלופות?",
+    "correctAnswer": "כריסטיאנו רונאלדו",
+    "explanation": "רונאלדו הבקיע למעלה מ-140 שערים בליגת האלופות",
+    "category": "football",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Cristiano Ronaldo", "רונאלדו", "CR7"]
+  },
+  {
+    "id": "football_3",
+    "text": "באיזו שנה זכתה ספרד במונדיאל?",
+    "correctAnswer": "2010",
+    "explanation": "ספרד זכתה במונדיאל דרום אפריקה 2010 בגמר מול הולנד",
+    "category": "football",
+    "difficulty": "medium",
+    "acceptableAnswers": []
+  },
+  {
+    "id": "football_4",
+    "text": "מהי הקבוצה שזכתה הכי הרבה בליגת האלופות?",
+    "correctAnswer": "ריאל מדריד",
+    "explanation": "ריאל מדריד זכתה 15 פעמים בליגת האלופות",
+    "category": "football",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Real Madrid", "ריאל"]
+  },
+  {
+    "id": "football_5",
+    "text": "מי הוא השחקן היקר ביותר בהיסטוריית הכדורגל?",
+    "correctAnswer": "ניימאר",
+    "explanation": "ניימאר נמכר מברצלונה לפ.ס.ז' ב-222 מיליון יורו ב-2017",
+    "category": "football",
+    "difficulty": "medium",
+    "acceptableAnswers": ["Neymar", "ניימאר ג'וניור"]
+  },
+  {
+    "id": "football_6",
+    "text": "כמה שחקנים יש על המגרש בקבוצת כדורגל?",
+    "correctAnswer": "11",
+    "explanation": "כל קבוצה משחקת עם 11 שחקנים כולל השוער",
+    "category": "football",
+    "difficulty": "easy",
+    "acceptableAnswers": ["אחת עשרה", "אחד עשר"]
+  },
+  {
+    "id": "football_7",
+    "text": "מי הבקיע את 'יד האלוהים' במונדיאל 1986?",
+    "correctAnswer": "דייגו מראדונה",
+    "explanation": "מראדונה הבקיע ביד נגד אנגליה ברבע הגמר",
+    "category": "football",
+    "difficulty": "medium",
+    "acceptableAnswers": ["Diego Maradona", "מראדונה"]
+  },
+  {
+    "id": "football_8",
+    "text": "באיזו עיר נמצא האצטדיון 'קאמפ נואו'?",
+    "correctAnswer": "ברצלונה",
+    "explanation": "קאמפ נואו הוא האצטדיון הביתי של ברצלונה, הגדול באירופה",
+    "category": "football",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Barcelona"]
+  },
+  {
+    "id": "football_9",
+    "text": "מי זכה בכדור הזהב הכי הרבה פעמים?",
+    "correctAnswer": "ליאו מסי",
+    "explanation": "מסי זכה 8 פעמים בכדור הזהב",
+    "category": "football",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Lionel Messi", "מסי", "Messi"]
+  },
+  {
+    "id": "football_10",
+    "text": "מהי נבחרת ישראל היחידה שהעפילה למונדיאל?",
+    "correctAnswer": "1970",
+    "explanation": "ישראל שיחקה במונדיאל מקסיקו 1970",
+    "category": "football",
+    "difficulty": "hard",
+    "acceptableAnswers": []
+  }
+]
+

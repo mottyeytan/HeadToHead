@@ -1,0 +1,93 @@
+[
+  {
+    "id": "music_1",
+    "text": "מי הזמר שביצע את השיר 'Bohemian Rhapsody'?",
+    "correctAnswer": "פרדי מרקורי",
+    "explanation": "פרדי מרקורי היה הזמר והפרונטמן של להקת Queen, והשיר יצא ב-1975",
+    "category": "music",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Queen", "קווין", "Freddie Mercury"]
+  },
+  {
+    "id": "music_2",
+    "text": "איזו להקה ישראלית שרה 'יום הולדת'?",
+    "correctAnswer": "כוורת",
+    "explanation": "כוורת הייתה להקת רוק ישראלית שפעלה בשנות ה-70",
+    "category": "music",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Kaveret"]
+  },
+  {
+    "id": "music_3",
+    "text": "מי זכתה באירוויזיון 2018 עם השיר 'Toy'?",
+    "correctAnswer": "נטע ברזילי",
+    "explanation": "נטע ברזילי ייצגה את ישראל וזכתה במקום הראשון בליסבון",
+    "category": "music",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Netta", "נטע"]
+  },
+  {
+    "id": "music_4",
+    "text": "מהי הלהקה שהקליטה את האלבום 'Abbey Road'?",
+    "correctAnswer": "הביטלס",
+    "explanation": "Abbey Road הוא האלבום האחרון שהביטלס הקליטו יחד, ב-1969",
+    "category": "music",
+    "difficulty": "medium",
+    "acceptableAnswers": ["The Beatles", "Beatles", "ביטלס"]
+  },
+  {
+    "id": "music_5",
+    "text": "מי הזמר שידוע בכינוי 'מלך הפופ'?",
+    "correctAnswer": "מייקל ג'קסון",
+    "explanation": "מייקל ג'קסון קיבל את הכינוי בזכות הצלחתו העצומה בשנות ה-80",
+    "category": "music",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Michael Jackson", "ג'קסון"]
+  },
+  {
+    "id": "music_6",
+    "text": "איזה זמר ישראלי שר 'לונדון'?",
+    "correctAnswer": "עומר אדם",
+    "explanation": "עומר אדם הוציא את השיר 'לונדון' ב-2018 והפך ללהיט ענק",
+    "category": "music",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Omer Adam"]
+  },
+  {
+    "id": "music_7",
+    "text": "מהו שמה של הזמרת שביצעה את 'Rolling in the Deep'?",
+    "correctAnswer": "אדל",
+    "explanation": "אדל הוציאה את השיר באלבום '21' ב-2011",
+    "category": "music",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Adele"]
+  },
+  {
+    "id": "music_8",
+    "text": "איזו להקה שרה את 'Stairway to Heaven'?",
+    "correctAnswer": "לד זפלין",
+    "explanation": "Led Zeppelin הקליטו את השיר ב-1971, נחשב לאחד השירים הגדולים בהיסטוריה",
+    "category": "music",
+    "difficulty": "medium",
+    "acceptableAnswers": ["Led Zeppelin", "זפלין"]
+  },
+  {
+    "id": "music_9",
+    "text": "מי הזמרת הישראלית שביצעה את 'דיווה'?",
+    "correctAnswer": "דנה אינטרנשיונל",
+    "explanation": "דנה זכתה עם השיר באירוויזיון 1998 בבירמינגהם",
+    "category": "music",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Dana International", "דנה"]
+  },
+  {
+    "id": "music_10",
+    "text": "מהי הלהקה הכי נמכרת בהיסטוריה?",
+    "correctAnswer": "הביטלס",
+    "explanation": "הביטלס מכרו למעלה מ-600 מיליון תקליטים ברחבי העולם",
+    "category": "music",
+    "difficulty": "medium",
+    "acceptableAnswers": ["The Beatles", "Beatles", "ביטלס"]
+  }
+]
+

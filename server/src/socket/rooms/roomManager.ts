@@ -5,11 +5,11 @@ import type { Room, Player } from "./roomTypes";
 class RoomManager {
     private rooms: Map<string, Room> = new Map();
 
-    // יצירת חדר או הצטרפות לחדר קיים
+    // create room or join existing room
     joinRoom(roomId: string, player: Omit<Player, "score">): Room {
         let room = this.rooms.get(roomId);
         
-        // אם החדר לא קיים - יצירת חדר חדש
+        // if room does not exist - create new room
         if (!room) {
             room = {
                 id: roomId,
@@ -24,14 +24,14 @@ class RoomManager {
             console.log(`📦 Created new room: ${roomId}`);
         }
 
-        // בדיקה אם השחקן כבר בחדר
+        // check if player is already in room
         const existingPlayer = room.players.find(p => p.socketId === player.socketId);
         if (existingPlayer) {
             console.log(`⚠️ Player ${player.name} already in room ${roomId}`);
             return room;
         }
 
-        // הוספת השחקן לחדר
+        // add player to room
         room.players.push({ ...player, score: 0 });
         room.updatedAt = new Date();
         
@@ -49,7 +49,7 @@ class RoomManager {
 
         console.log(`👋 Player ${playerName} left room ${roomId}. Remaining: ${room.players.length}`);
 
-        // אם החדר ריק - מחיקתו
+        // if room is empty - delete it
         if (room.players.length === 0) {
             this.rooms.delete(roomId);
             console.log(`🗑️ Room ${roomId} deleted (empty)`);
@@ -63,7 +63,7 @@ class RoomManager {
         return this.rooms.get(roomId) || null;
     }
 
-    // מציאת כל החדרים שהשחקן נמצא בהם והסרתו
+    // find all rooms the player is in and remove him from them
     removePlayerFromAllRooms(socketId: string): { roomId: string; room: Room | null }[] {
         const results: { roomId: string; room: Room | null }[] = [];
         

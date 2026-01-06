@@ -1,0 +1,93 @@
+[
+  {
+    "id": "science_1",
+    "text": "מהו הסימן הכימי של מים?",
+    "correctAnswer": "H2O",
+    "explanation": "מים מורכבים משני אטומי מימן ואטום חמצן אחד",
+    "category": "science",
+    "difficulty": "easy",
+    "acceptableAnswers": []
+  },
+  {
+    "id": "science_2",
+    "text": "מי גילה את כוח הכבידה?",
+    "correctAnswer": "אייזק ניוטון",
+    "explanation": "ניוטון גילה את חוק הכבידה, לפי האגדה בעקבות נפילת תפוח",
+    "category": "science",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Isaac Newton", "ניוטון"]
+  },
+  {
+    "id": "science_3",
+    "text": "כמה כוכבי לכת יש במערכת השמש?",
+    "correctAnswer": "8",
+    "explanation": "כוכב חמה, נוגה, כדור הארץ, מאדים, צדק, שבתאי, אורנוס ונפטון",
+    "category": "science",
+    "difficulty": "easy",
+    "acceptableAnswers": ["שמונה"]
+  },
+  {
+    "id": "science_4",
+    "text": "מהו האיבר הגדול ביותר בגוף האדם?",
+    "correctAnswer": "העור",
+    "explanation": "העור הוא האיבר הגדול ביותר, מכסה כ-2 מ\"ר בממוצע",
+    "category": "science",
+    "difficulty": "medium",
+    "acceptableAnswers": ["עור"]
+  },
+  {
+    "id": "science_5",
+    "text": "מי פיתח את תורת היחסות?",
+    "correctAnswer": "אלברט איינשטיין",
+    "explanation": "איינשטיין פרסם את תורת היחסות הפרטית ב-1905",
+    "category": "science",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Albert Einstein", "איינשטיין"]
+  },
+  {
+    "id": "science_6",
+    "text": "מהי יחידת המידה לזרם חשמלי?",
+    "correctAnswer": "אמפר",
+    "explanation": "אמפר נקרא על שם הפיזיקאי הצרפתי אנדרה-מארי אמפר",
+    "category": "science",
+    "difficulty": "medium",
+    "acceptableAnswers": ["Ampere", "A"]
+  },
+  {
+    "id": "science_7",
+    "text": "מהו היסוד הנפוץ ביותר ביקום?",
+    "correctAnswer": "מימן",
+    "explanation": "מימן מהווה כ-75% מהמסה הרגילה ביקום",
+    "category": "science",
+    "difficulty": "medium",
+    "acceptableAnswers": ["Hydrogen", "H"]
+  },
+  {
+    "id": "science_8",
+    "text": "כמה עצמות יש בגוף האדם הבוגר?",
+    "correctAnswer": "206",
+    "explanation": "תינוקות נולדים עם יותר עצמות שמתמזגות במהלך ההתפתחות",
+    "category": "science",
+    "difficulty": "hard",
+    "acceptableAnswers": []
+  },
+  {
+    "id": "science_9",
+    "text": "מהי מהירות האור?",
+    "correctAnswer": "300000 קמ\"ש",
+    "explanation": "מהירות האור היא כ-299,792 ק\"מ לשנייה",
+    "category": "science",
+    "difficulty": "hard",
+    "acceptableAnswers": ["300000", "299792"]
+  },
+  {
+    "id": "science_10",
+    "text": "מי המציא את הנורה החשמלית?",
+    "correctAnswer": "תומאס אדיסון",
+    "explanation": "אדיסון פיתח את הנורה המעשית הראשונה ב-1879",
+    "category": "science",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Thomas Edison", "אדיסון"]
+  }
+]
+

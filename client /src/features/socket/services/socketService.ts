@@ -1,13 +1,11 @@
-// Socket service - connection management
 import { io, Socket } from "socket.io-client";
 
-// בניית כתובת ה-socket באופן דינמי - עובד גם בפלאפון!
 const getSocketUrl = () => {
-    // אם יש משתנה סביבה - השתמש בו
+    // if there is an environment variable - use it
     if (import.meta.env.VITE_SOCKET_URL) {
         return import.meta.env.VITE_SOCKET_URL;
     }
-    // אחרת - השתמש באותו host כמו הדף, רק port 3001
+    // otherwise - use the same host as the page
     const host = window.location.hostname;
     return `http://${host}:3001`;
 };

@@ -1,0 +1,93 @@
+[
+  {
+    "id": "geography_1",
+    "text": "מהי בירת צרפת?",
+    "correctAnswer": "פריז",
+    "explanation": "פריז היא בירת צרפת והעיר הגדולה ביותר במדינה",
+    "category": "geography",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Paris"]
+  },
+  {
+    "id": "geography_2",
+    "text": "מהו ההר הגבוה ביותר בעולם?",
+    "correctAnswer": "אוורסט",
+    "explanation": "הר אוורסט גבוה 8,849 מטרים ונמצא בהימלאיה",
+    "category": "geography",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Everest", "מאונט אוורסט", "Mount Everest"]
+  },
+  {
+    "id": "geography_3",
+    "text": "כמה יבשות יש בעולם?",
+    "correctAnswer": "7",
+    "explanation": "אסיה, אפריקה, צפון אמריקה, דרום אמריקה, אנטארקטיקה, אירופה ואוסטרליה",
+    "category": "geography",
+    "difficulty": "easy",
+    "acceptableAnswers": ["שבע"]
+  },
+  {
+    "id": "geography_4",
+    "text": "מהי המדינה הגדולה ביותר בעולם?",
+    "correctAnswer": "רוסיה",
+    "explanation": "רוסיה משתרעת על פני 17 מיליון קמ\"ר",
+    "category": "geography",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Russia"]
+  },
+  {
+    "id": "geography_5",
+    "text": "מהו הנהר הארוך ביותר בעולם?",
+    "correctAnswer": "הנילוס",
+    "explanation": "נהר הנילוס באפריקה באורך של כ-6,650 ק\"מ",
+    "category": "geography",
+    "difficulty": "medium",
+    "acceptableAnswers": ["Nile", "נילוס"]
+  },
+  {
+    "id": "geography_6",
+    "text": "באיזו מדינה נמצא מגדל אייפל?",
+    "correctAnswer": "צרפת",
+    "explanation": "מגדל אייפל נמצא בפריז, בירת צרפת",
+    "category": "geography",
+    "difficulty": "easy",
+    "acceptableAnswers": ["France"]
+  },
+  {
+    "id": "geography_7",
+    "text": "מהי בירת יפן?",
+    "correctAnswer": "טוקיו",
+    "explanation": "טוקיו היא בירת יפן והמטרופולין הגדול בעולם",
+    "category": "geography",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Tokyo"]
+  },
+  {
+    "id": "geography_8",
+    "text": "באיזו יבשת נמצאת מצרים?",
+    "correctAnswer": "אפריקה",
+    "explanation": "מצרים נמצאת בצפון-מזרח אפריקה",
+    "category": "geography",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Africa"]
+  },
+  {
+    "id": "geography_9",
+    "text": "מהי המדינה היחידה שהיא גם יבשת?",
+    "correctAnswer": "אוסטרליה",
+    "explanation": "אוסטרליה היא גם מדינה וגם יבשת",
+    "category": "geography",
+    "difficulty": "medium",
+    "acceptableAnswers": ["Australia"]
+  },
+  {
+    "id": "geography_10",
+    "text": "מהו האוקיינוס הגדול ביותר בעולם?",
+    "correctAnswer": "האוקיינוס השקט",
+    "explanation": "האוקיינוס השקט מכסה כשליש משטח כדור הארץ",
+    "category": "geography",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Pacific", "השקט", "פסיפי"]
+  }
+]
+

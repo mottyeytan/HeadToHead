@@ -11,7 +11,6 @@ export const GameLobby = () => {
   const navigate = useNavigate();
   const game = games[gameId as keyof typeof games] || null;
   
-  // טוען את השם מ-localStorage פעם אחת בהתחלה
   const [playerName, setPlayerName] = useState(() => 
     localStorage.getItem("playerName") || ""
   );
@@ -21,17 +20,14 @@ export const GameLobby = () => {
   };
 
   const handlePlay = () => {
-    // שומר ל-localStorage לפני שמתחילים לשחק
     if (playerName.trim()) {
       localStorage.setItem("playerName", playerName);
     }
-    // יצירת מזהה ייחודי לחדר
+
     const roomId = Math.random().toString(36).substring(2, 8).toUpperCase();
-    console.log("Starting game:", gameId, "Room:", roomId, "Player:", playerName);
     navigate(routes.gameRoom.replace(":gameId", gameId || "").replace(":roomId", roomId));
   };
 
-  // שומר כשיוצאים מהאינפוט (blur)
   const handleBlur = () => {
     if (playerName.trim()) {
       localStorage.setItem("playerName", playerName);
@@ -43,6 +39,7 @@ export const GameLobby = () => {
       handlePlay();
     }
   };
+  
   return (
     <Container maxWidth={false} sx={{ padding: "24px", maxWidth: "600px", margin: "0 auto", display: "flex", flexDirection: "column", gap: "24px", alignItems: "flex-start" }}>
       <ArrowBackIcon sx={{ fontSize: "1.5rem", color: "#fff", transform: "rotate(180deg)", alignSelf: "flex-start", cursor: "pointer" }} onClick={handleBack} />

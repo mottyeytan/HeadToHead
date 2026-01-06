@@ -1,4 +1,3 @@
-// Socket event names
 
 export const SocketEvents = {
   // Connection
@@ -14,9 +13,15 @@ export const SocketEvents = {
   // Game
   START_GAME: "game:start",
   GAME_STARTED: "game:started",
-  NEXT_QUESTION: "game:question",
+  NEW_QUESTION: "game:new_question",      
   SUBMIT_ANSWER: "game:answer",
+  PLAYER_ANSWERED: "game:player_answered", 
   ANSWER_RESULT: "game:answer_result",
+  PLAYER_READY: "game:player_ready",       
+  ALL_READY: "game:all_ready",             
+  REVEAL_ANSWER: "game:reveal",            
+  TIME_UPDATE: "game:time",               
   SCORES_UPDATED: "game:scores",
   GAME_OVER: "game:over",
+  GAME_ERROR: "game:error",
 }

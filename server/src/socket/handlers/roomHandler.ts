@@ -1,12 +1,12 @@
 // Room join/leave handler
 import { Server, Socket } from "socket.io";
-import { roomManager } from "../../rooms/roomManager";
+import { roomManager } from "../rooms/roomManager";
 import { SocketEvents } from "../../../../shared/events/socketEvents";
 import { JoinRoomProps } from "../../../../shared/types/roomTypes";
 
 export const roomHandler = (io: Server, socket: Socket) => {
 
-    // הצטרפות לחדר
+    // join room
     socket.on(SocketEvents.JOIN_ROOM, ({ roomId, playerName }: JoinRoomProps) => {
         console.log(`🎮 JOIN_ROOM: ${playerName} -> ${roomId}`);
         
@@ -17,14 +17,14 @@ export const roomHandler = (io: Server, socket: Socket) => {
 
         socket.join(roomId);
 
-        // שליחת עדכון לכל השחקנים בחדר
+        // update players in room
         io.to(roomId).emit(SocketEvents.PLAYERS_UPDATED, {
             players: room.players,
             roomId: room.id,
         });
     });
 
-    // יציאה מחדר
+    // leave room
     socket.on(SocketEvents.LEAVE_ROOM, ({ roomId }: { roomId: string }) => {
         console.log(`🚪 LEAVE_ROOM: ${socket.id} <- ${roomId}`);
         
@@ -39,40 +39,14 @@ export const roomHandler = (io: Server, socket: Socket) => {
         }
     });
 
-    // התחלת משחק
-    socket.on(SocketEvents.START_GAME, ({ roomId }: { roomId: string }) => {
-        console.log(`🎯 START_GAME: ${roomId}`);
-        
-        const room = roomManager.getRoom(roomId);
-        if (!room) {
-            socket.emit(SocketEvents.ROOM_ERROR, { message: "החדר לא נמצא" });
-            return;
-        }
-
-        if (room.players.length < 2) {
-            socket.emit(SocketEvents.ROOM_ERROR, { message: "צריך לפחות 2 שחקנים להתחיל" });
-            return;
-        }
-
-        room.status = "started";
-        room.currentQuestionIndex = 0;
-
-        io.to(roomId).emit(SocketEvents.GAME_STARTED, {
-            roomId: room.id,
-            players: room.players,
-        });
-
-        console.log(`🎮 Game started in room ${roomId} with ${room.players.length} players`);
-    });
-
-    // ניתוק - ניקוי השחקן מכל החדרים
+    // disconnect - remove player from all rooms
     socket.on("disconnect", () => {
         console.log(`🔌 Socket disconnected: ${socket.id}`);
         
-        // הסרת השחקן מכל החדרים שהוא נמצא בהם
+        // remove player from all rooms
         const results = roomManager.removePlayerFromAllRooms(socket.id);
         
-        // שליחת עדכון לכל החדרים שהשחקן היה בהם
+        // send update to all rooms the player was in
         for (const { roomId, room } of results) {
             if (room) {
                 io.to(roomId).emit(SocketEvents.PLAYERS_UPDATED, {
