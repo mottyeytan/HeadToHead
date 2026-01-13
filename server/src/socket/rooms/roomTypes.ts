@@ -11,6 +11,7 @@ export interface Room {
 }
 
 export interface Player {
+    id: string;
     name: string;
     score: number;
     socketId: string;

@@ -18,9 +18,9 @@ export const Room = ({ gameId, playerName, onStartGame, onLeaveRoom }: RoomProps
     const { players, error, isInRoom, canStartGame, leaveRoom } = useRoom({ roomId: gameId, playerName });
 
     // leave room when the component is unmounted
-    useEffect(() => {
-        return () => leaveRoom();
-    }, [leaveRoom]);
+    // useEffect(() => {
+    //     return () => leaveRoom();
+    // }, [leaveRoom]);
 
     const handleLeaveRoom = () => {
         leaveRoom();

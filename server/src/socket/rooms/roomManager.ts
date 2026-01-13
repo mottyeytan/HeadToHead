@@ -6,7 +6,7 @@ class RoomManager {
     private rooms: Map<string, Room> = new Map();
 
     // create room or join existing room
-    joinRoom(roomId: string, player: Omit<Player, "score">): Room {
+    joinRoom(roomId: string,  player: Omit<Player, "score">): Room {
         let room = this.rooms.get(roomId);
         
         // if room does not exist - create new room
@@ -25,7 +25,7 @@ class RoomManager {
         }
 
         // check if player is already in room
-        const existingPlayer = room.players.find(p => p.socketId === player.socketId);
+        const existingPlayer = room.players.find(p => p.socketId === player.socketId && p.name === player.name);
         if (existingPlayer) {
             console.log(`⚠️ Player ${player.name} already in room ${roomId}`);
             return room;

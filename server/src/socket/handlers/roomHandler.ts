@@ -11,6 +11,7 @@ export const roomHandler = (io: Server, socket: Socket) => {
         console.log(`🎮 JOIN_ROOM: ${playerName} -> ${roomId}`);
         
         const room = roomManager.joinRoom(roomId, {
+            id: socket.id,
             name: playerName,
             socketId: socket.id,
         });

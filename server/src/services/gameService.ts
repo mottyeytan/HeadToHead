@@ -1,4 +1,4 @@
-import type { GameState, GamePhase, PlayerState, PlayerAnswer } from "../types/game.types";
+import type { GameState, PlayerState, PlayerAnswer } from "../types/game.types";
 import type { Question } from "../types/question.types";
 import { QuestionsService } from "./questionsService";
 
@@ -38,6 +38,7 @@ export class GameService {
             remainingTime: 0,
         };
         console.log(`🎮 Game created: ${roomId} with ${players.length} players and ${questions.length} questions`);
+        console.log("🎮 Game questions: ", questions);
         activeGames.set(roomId, game);
         return game;
     }
@@ -70,6 +71,37 @@ export class GameService {
         console.log(`🎮 Game started: ${roomId} with ${game.players.length} players and ${game.questions.length} questions`);
         return game;
     }
+
+    static LeaveGame(roomId: string, playerId: string):{
+        game: GameState | null;
+        gameEnded: boolean;
+        leftPlayer?: PlayerState | null;
+        remainingPlayer?: PlayerState;
+    } | null {
+     {
+        const game = activeGames.get(roomId);
+        if (!game) return null;
+
+        const leftPlayer = game.players.find(p => p.id === playerId);
+        if (!leftPlayer) return null;
+
+        game.players = game.players.filter(p => p.id !== playerId);
+
+        if (game.players.length < 2){
+            return {
+                game: null,
+                gameEnded: true,
+                leftPlayer,
+                remainingPlayer: game.players[0],
+            }
+        }
+
+       return {
+        game,
+        gameEnded: false,
+        leftPlayer,
+       };
+    }}
 
     static MoveToAnswerPhase(roomId: string): GameState | undefined {
         const game = activeGames.get(roomId);
@@ -149,7 +181,7 @@ export class GameService {
 
      static playerReadyForNextQuestion(roomId: string, playerId: string): {
         game:GameState; 
-        allReady: boolean
+        allReady: boolean;
      } | null {
 
         const game = activeGames.get(roomId);
@@ -172,7 +204,8 @@ export class GameService {
         const game = activeGames.get(roomId);
         if (!game) return null;
 
-        game.remainingTime--;
+        game.remainingTime = Math.max(0, game.remainingTime - 1);
+
         if (game.remainingTime <= 0) {
             return { game, timeUp: true };
         }

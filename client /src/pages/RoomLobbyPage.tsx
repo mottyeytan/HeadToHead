@@ -8,6 +8,7 @@ import routes from "../global/router/model/routes.model";
 import { Room } from "../features/room/components/Room";
 import { GuestSection } from "../features/room/components/GuestSection";
 import { InviteSection } from "../features/room/components/InviteSection";
+import { useGame } from "../features/game/hooks/useGame";
 
 const generateRoomId = () => {
     return Math.random().toString(36).substring(2, 8).toUpperCase();
@@ -18,11 +19,14 @@ export const RoomLobbyPage = () => {
     const navigate = useNavigate();
     const game = games[gameId as keyof typeof games] || null;
     
+    
     const isGuest = !!inviterName;
     
     const roomId = useMemo(() => {
         return urlRoomId || generateRoomId();
     }, [urlRoomId]);
+
+    const {startGame, gameStarted} = useGame(roomId as string)
     
     useEffect(() => {
         if (!isGuest && !urlRoomId && gameId) {
@@ -32,6 +36,13 @@ export const RoomLobbyPage = () => {
             navigate(newPath, { replace: true });
         }
     }, [isGuest, urlRoomId, gameId, roomId, navigate]);
+
+    // Navigate ALL players when game starts (triggered by GAME_STARTED event)
+    useEffect(() => {
+        if (gameStarted && gameId) {
+            navigate(routes.gamePlay.replace(":gameId", gameId).replace(":roomId", roomId));
+        }
+    }, [gameStarted, gameId, roomId, navigate]);
     
     const hostName = inviterName || localStorage.getItem("playerName") || "אורח";
     const [guestName, setGuestName] = useState(isGuest ? "" : hostName);
@@ -43,11 +54,13 @@ export const RoomLobbyPage = () => {
     };
 
     const handlePlayAlone = () => {
-        navigate(routes.gamePlay.replace(":gameId", gameId || ""));
+        navigate(routes.gamePlay.replace(":gameId", gameId || "").replace(":roomId", roomId));
     };
 
     const handleStartGame = () => {
-        navigate(routes.gamePlay.replace(":gameId", gameId || ""));
+        startGame(game?.id as string, roomId);
+        // Navigation is handled by useEffect when gameStarted becomes true
+        // This ensures ALL players navigate when the server confirms the game started
     };
 
     const handleJoinRoom = (name: string) => {

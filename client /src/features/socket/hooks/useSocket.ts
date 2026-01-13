@@ -20,7 +20,7 @@ export const useSocket = () => {
         socket.on("connect", onConnect);
         socket.on("disconnect", onDisconnect);
 
-        // אם כבר מחובר בזמן ההרשמה
+        // if already connected
         if (socket.connected) {
             setIsConnected(true);
         }

@@ -1,7 +1,7 @@
 import { Box, Button, Container, InputBase } from "@mui/material";
 import { useState } from "react";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import { GameDescription } from "../features/game/components/GameLobby/GameDescription";
+import { GameDescription } from "../features/GameLobby/GameDescription";
 import { games } from "../features/questions/data/categories";
 import { useParams, useNavigate } from "react-router-dom";
 import routes from "../global/router/model/routes.model";

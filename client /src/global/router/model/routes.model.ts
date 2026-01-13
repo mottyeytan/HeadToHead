@@ -1,11 +1,9 @@
 const routes = {
     home: "/",
     gameLobby: "/:gameId",
-    // חדר עם מזהה ייחודי - למארח
     gameRoom: "/:gameId/room/:roomId",
-    // קישור הזמנה עם שם המזמין - לאורח
     gameRoomInvite: "/:gameId/room/:roomId/:inviterName",
-    gamePlay: "/game/:gameId/play",
+    gamePlay: "/game/:gameId/room/:roomId/play",
     login: "/login",
     register: "/register",
     profile: "/profile",

@@ -9,6 +9,7 @@ export const gameHandler = (io: Server, socket: Socket) => {
     //socket events summary:
     //==============================================
     //startGame: starts a game by roomId and category
+    //leaveGame: leaves a game by roomId
     //submitAnswer: submits an answer by roomId, playerId, answer
     //playerReadyForNextQuestion: checks if all players are ready for the next question by roomId, playerId
     //timerTick: ticks the timer by roomId
@@ -23,7 +24,7 @@ export const gameHandler = (io: Server, socket: Socket) => {
     // start game
     //==============================================
 
-    socket.on(SocketEvents.START_GAME, ({ roomId, category }: { roomId: string, category: string }) => {
+    socket.on(SocketEvents.START_GAME, ({ category, roomId }: { category: string, roomId: string }) => {
         console.log(`🎮 Start game: ${roomId} - ${category}`);
 
         const room = roomManager.getRoom(roomId);
@@ -64,9 +65,14 @@ export const gameHandler = (io: Server, socket: Socket) => {
         }
 
         io.to(roomId).emit(SocketEvents.GAME_STARTED, {
-            roomId,
             totalQuestions: game.questions.length,
             players: gamePlayers,
+            // Include first question to avoid race condition
+            firstQuestion: {
+                questionIndex: startedGame.currentQuestionIndex + 1,
+                question: startedGame.currentQuestion,
+                timeLimit: 15,
+            }
         });
 
         console.log(`🎮 Game started in room ${roomId} with ${gamePlayers.length} players and ${game.questions.length} questions`);
@@ -74,6 +80,74 @@ export const gameHandler = (io: Server, socket: Socket) => {
         sendQuestion(io, roomId, startedGame);
 
         startTimer(io, roomId);
+    });
+
+    //==============================================
+    // leave game
+    //==============================================
+
+    socket.on(SocketEvents.LEAVE_GAME, ({ roomId }: { roomId: string }) => {
+        const playerId = socket.id;
+        console.log(`🚪 LEAVE_GAME: ${roomId} - ${playerId}`);
+        
+        const result = GameService.LeaveGame(roomId, playerId);
+
+        socket.leave(roomId);
+
+        if (!result) return;
+
+        if (result.gameEnded){
+            clearTimer(roomId);
+            io.to(roomId).emit(SocketEvents.GAME_OVER, {
+                finalScores: result.remainingPlayer ? [{
+                    playerId: result.remainingPlayer.id,
+                    name: result.remainingPlayer.name,
+                    score: result.remainingPlayer.score,
+                }] : [],
+                winner: result.remainingPlayer?.name || "",
+                reason: "opponent left",
+            })
+            GameService.deleteGame(roomId);
+
+        }else{
+            io.to(roomId).emit(SocketEvents.PLAYER_LEFT_GAME, {
+                playerId,
+                playerName: result.leftPlayer?.name,
+                remainingPlayers: result.game?.players
+            })
+        }
+       
+    });
+
+    //==============================================
+    // get game state
+    //==============================================
+
+    socket.on(SocketEvents.GET_GAME_STATE, ({ roomId }: { roomId: string }) => {
+        console.log(`📋 GET_GAME_STATE: ${roomId}`);
+        
+        const game = GameService.getGame(roomId);
+        
+        if (!game) {
+            socket.emit(SocketEvents.GAME_STATE, { 
+                exists: false 
+            });
+            return;
+        }
+        
+        socket.emit(SocketEvents.GAME_STATE, {
+            exists: true,
+            phase: game.phase,
+            currentQuestion: game.currentQuestion,
+            questionIndex: game.currentQuestionIndex + 1,
+            totalQuestions: game.questions.length,
+            remainingTime: game.remainingTime,
+            scores: game.players.map(p => ({
+                id: p.id,
+                name: p.name,
+                score: p.score
+            }))
+        });
     });
 
     //==============================================
@@ -165,25 +239,33 @@ const startTimer = (io: Server, roomId: string) => {
     
     clearTimer(roomId);
     
+    const game = GameService.getGame(roomId);
+    console.log(`⏱️ Starting timer for room ${roomId}, phase: ${game?.phase}, remainingTime: ${game?.remainingTime}`);
+    
     const timer = setInterval(() => {
 
         const result = GameService.TimerTick(roomId);
         if (!result) {clearTimer(roomId); return;};
 
-        io.to(roomId).emit(SocketEvents.TIME_UPDATE, {
-            remainingTime: result.game.remainingTime,
-        });
+        console.log(`⏱️ Timer tick: ${roomId}, phase: ${result.game.phase}, time: ${result.game.remainingTime}, timeUp: ${result.timeUp}`);
 
         if (result.timeUp){
             clearTimer(roomId);
-            
 
+            io.to(roomId).emit(SocketEvents.TIME_UPDATE, {
+                remainingTime: 0,
+            });
+
+            // Timer only runs during question phase
             if (result.game.phase === "question"){
                 moveToAnswerPhase(io, roomId);
-            } else if (result.game.phase === "answer"){
-                moveToNextQuestion(io, roomId);
             }
+            return; // Don't continue after timeUp
         }
+
+        io.to(roomId).emit(SocketEvents.TIME_UPDATE, {
+            remainingTime: result.game.remainingTime,
+        });
 
     }, 1000);
 
@@ -206,37 +288,64 @@ const sendQuestion = (io: Server, roomId: string, game: any) => {
     io.to(roomId).emit(SocketEvents.NEW_QUESTION, {
         questionIndex: game.currentQuestionIndex + 1,
         totalQuestions: game.questions.length,
-        questions: {
-            id: game.currentQuestion.id,
-            text: game.currentQuestion.text,
-            category: game.currentQuestion.category
-        },
+        question: game.currentQuestion,
         timeLimit: 15,
     });
 };
 
 const moveToAnswerPhase = (io: Server, roomId: string) => {
-    const game = GameService.getGame(roomId);
-    if (!game) return;
+    console.log(`📢 moveToAnswerPhase called for room: ${roomId}`);
+    const game = GameService.MoveToAnswerPhase(roomId);
+    if (!game) {
+        console.log(`❌ moveToAnswerPhase: game not found for room ${roomId}`);
+        return;
+    }
 
-    // send answer with correct answer and who answered correctly
-    io.to(roomId).emit(SocketEvents.REVEAL_ANSWER, {
-        correctAnswer: game.currentQuestion.correctAnswer,
-        explanation: game.currentQuestion.explanation,
-        results: game.players.map(p => ({
-            id: p.id,
-            name: p.name,
-            answer: p.currentAnswer?.answer,
-            isCorrect: p.currentAnswer?.isCorrect,
-            timeTaken: p.currentAnswer?.timeTaken,
-        })),
-        scores: GameService.getScores(roomId),
-    });
+    // Check if this is the last question
+    const isLastQuestion = game.currentQuestionIndex >= game.questions.length - 1;
 
-    // start reveal timer 
-    startTimer(io, roomId); //5 seconds
-
-   
+    if (isLastQuestion) {
+        // Last question - go directly to finish phase with answer info
+        console.log(`🎯 Last question answered in room ${roomId}, moving to finish`);
+        
+        const finalScores = GameService.getScores(roomId);
+        const winner = finalScores.find(p => p.score === Math.max(...finalScores.map(p => p.score)))?.name || "";
+        
+        io.to(roomId).emit(SocketEvents.GAME_OVER, {
+            finalScores,
+            winner,
+            // Include last question answer
+            lastQuestionAnswer: {
+                correctAnswer: game.currentQuestion.correctAnswer,
+                explanation: game.currentQuestion.explanation,
+                results: game.players.map(p => ({
+                    id: p.id,
+                    name: p.name,
+                    answer: p.currentAnswer?.answer,
+                    isCorrect: p.currentAnswer?.isCorrect,
+                    timeTaken: p.currentAnswer?.timeTaken,
+                })),
+            },
+        });
+        
+        clearTimer(roomId);
+        GameService.deleteGame(roomId);
+    } else {
+        // Not last question - normal answer reveal
+        console.log(`📢 Emitting REVEAL_ANSWER to room ${roomId}`);
+        io.to(roomId).emit(SocketEvents.REVEAL_ANSWER, {
+            correctAnswer: game.currentQuestion.correctAnswer,
+            explanation: game.currentQuestion.explanation,
+            results: game.players.map(p => ({
+                id: p.id,
+                name: p.name,
+                answer: p.currentAnswer?.answer,
+                isCorrect: p.currentAnswer?.isCorrect,
+                timeTaken: p.currentAnswer?.timeTaken,
+            })),
+            scores: GameService.getScores(roomId),
+        });
+    }
 };
 
 const moveToNextQuestion = (io: Server, roomId: string) => {
@@ -248,7 +357,7 @@ const moveToNextQuestion = (io: Server, roomId: string) => {
         console.log(`🎯 Game finished in room ${roomId}`);
         io.to(roomId).emit(SocketEvents.GAME_OVER, {
             finalScores: GameService.getScores(roomId),
-            winner: GameService.getScores(roomId).find(p => p.score === Math.max(...GameService.getScores(roomId).map(p => p.score))),
+            winner: GameService.getScores(roomId).find(p => p.score === Math.max(...GameService.getScores(roomId).map(p => p.score)))?.name || "",
         });
         clearTimer(roomId);
         GameService.deleteGame(roomId);
