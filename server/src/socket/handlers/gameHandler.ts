@@ -103,9 +103,11 @@ export const gameHandler = (io: Server, socket: Socket) => {
                     playerId: result.remainingPlayer.id,
                     name: result.remainingPlayer.name,
                     score: result.remainingPlayer.score,
+                    
                 }] : [],
                 winner: result.remainingPlayer?.name || "",
                 reason: "opponent left",
+                message: `${result.leftPlayer?.name} עזב את המשחק`,
             })
             GameService.deleteGame(roomId);
 
@@ -113,7 +115,8 @@ export const gameHandler = (io: Server, socket: Socket) => {
             io.to(roomId).emit(SocketEvents.PLAYER_LEFT_GAME, {
                 playerId,
                 playerName: result.leftPlayer?.name,
-                remainingPlayers: result.game?.players
+                remainingPlayers: result.game?.players,
+                message: `${result.leftPlayer?.name} עזב את המשחק`,
             })
         }
        
@@ -154,7 +157,10 @@ export const gameHandler = (io: Server, socket: Socket) => {
     // submit answer
     //==============================================
 
-    socket.on(SocketEvents.SUBMIT_ANSWER, ({ roomId, playerId, answer }: { roomId: string, playerId: string, answer: string }) => {
+    socket.on(SocketEvents.SUBMIT_ANSWER, ({ roomId, answer }: { roomId: string, answer: string }) => {
+        const playerId = socket.id;
+        if (!playerId) return;
+
         console.log(`🎯 SUBMIT_ANSWER: ${roomId} - ${playerId} - ${answer}`);
 
         const game = GameService.getGame(roomId);
@@ -195,7 +201,11 @@ export const gameHandler = (io: Server, socket: Socket) => {
     // player ready for next question
     //==============================================
 
-    socket.on(SocketEvents.PLAYER_READY, ({ roomId, playerId }: { roomId: string, playerId: string }) => {
+    socket.on(SocketEvents.PLAYER_READY, ({ roomId }: { roomId: string }) => {
+        const playerId = socket.id;
+        if (!playerId) return;
+        
+        console.log(`🎯 PLAYER_READY: ${roomId} - ${playerId}`);
         
         const result = GameService.playerReadyForNextQuestion(roomId, playerId);
         if (!result) return;
@@ -225,11 +235,40 @@ export const gameHandler = (io: Server, socket: Socket) => {
     //==============================================
 
     socket.on("disconnect", () => {
-        // TODO: handel player disconnected during game 
-
+        const playerId = socket.id;
+        const found = GameService.findGameByPlayerId(playerId);
+    
+        if (found) {
+            const { roomId } = found;
+            const result = GameService.LeaveGame(roomId, playerId);
+            
+            if (!result) return;
+    
+            if (result.gameEnded) {
+                clearTimer(roomId);
+                io.to(roomId).emit(SocketEvents.GAME_OVER, {
+                    finalScores: result.remainingPlayer ? [{
+                        playerId: result.remainingPlayer.id,
+                        name: result.remainingPlayer.name,
+                        score: result.remainingPlayer.score,
+                        message: `${result.leftPlayer?.name} עזב את המשחק`,
+                    }] : [],
+                    winner: result.remainingPlayer?.name || "",
+                    reason: "opponent disconnected",
+                });
+                GameService.deleteGame(roomId);
+            } else {
+                io.to(roomId).emit(SocketEvents.PLAYER_LEFT_GAME, {
+                    playerId,
+                    playerName: result.leftPlayer?.name,
+                    remainingPlayers: result.game?.players,
+                    message: `${result.leftPlayer?.name} עזב את המשחק`,
+                });
+            }
+        }
+    
         console.log(`🔌 Socket disconnected: ${socket.id}`);
     });
-};
 
 //==============================================
 // timer functions
@@ -370,3 +409,4 @@ const moveToNextQuestion = (io: Server, roomId: string) => {
     startTimer(io, roomId);
 };
 
+};

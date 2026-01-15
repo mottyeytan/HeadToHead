@@ -1,4 +1,4 @@
-import { Box, Button, Typography, Paper, IconButton, Dialog, DialogTitle, DialogContent, DialogActions } from "@mui/material";
+import { Box, Button, Typography, Paper, IconButton, Dialog, DialogTitle, DialogContent, DialogActions, Snackbar, Alert } from "@mui/material";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import { useParams, useNavigate } from "react-router-dom";
 import { useState } from "react";
@@ -27,9 +27,11 @@ export const GamePlay = () => {
         revealAnswer,
         winner,
         lastQuestionAnswer,
+        GameMessage,
         submitAnswer,
         readyForNextQuestion,
         leaveGame,
+        setGameMessage,
     } = useGame(roomId as string);
 
     const handleExitClick = () => {
@@ -83,6 +85,25 @@ export const GamePlay = () => {
                     <ExitToAppIcon />
                 </IconButton>
             </Box>
+
+            <Snackbar
+                    open={!!GameMessage && phase !== "finished"}
+                    autoHideDuration={4000}
+                    onClose={() => setGameMessage("")}
+                    anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+                >
+                    <Alert 
+                        severity="info" 
+                        variant="filled"
+                        sx={{ 
+                            backgroundColor: 'rgba(30, 30, 30, 0.95)',
+                            color: '#fff',
+                            border: '1px solid rgba(255, 255, 255, 0.1)',
+                        }}
+                    >
+                        {GameMessage}
+                    </Alert>
+                </Snackbar>
 
             {/* Exit Confirmation Dialog */}
             <Dialog
@@ -248,13 +269,6 @@ export const GamePlay = () => {
                         {/* Show last question answer if available */}
                         {lastQuestionAnswer && (
                             <>
-                                {/* <Typography
-                                    color="rgba(255, 255, 255, 0.6)"
-                                    variant="body2"
-                                    sx={{ textAlign: "center" }}
-                                >
-                                    תשובה לשאלה האחרונה
-                                </Typography> */}
                                 <RevealAnswer
                                     correctAnswer={lastQuestionAnswer.correctAnswer}
                                     explanation={lastQuestionAnswer.explanation}
@@ -262,6 +276,25 @@ export const GamePlay = () => {
                                 />
                             </>
                         )}
+
+                        <Snackbar
+                            open={!!GameMessage }
+                            autoHideDuration={4000}
+                            onClose={() => setGameMessage("")}
+                            anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+                        >
+                            <Alert 
+                                severity="info" 
+                                variant="filled"
+                                sx={{ 
+                                    backgroundColor: 'rgba(30, 30, 30, 0.95)',
+                                    color: '#fff',
+                                    border: '1px solid rgba(255, 255, 255, 0.1)',
+                                }}
+                            >
+                                {GameMessage}
+                            </Alert>
+                        </Snackbar>
 
                         <Typography
                             variant="h4"
@@ -318,6 +351,8 @@ export const GamePlay = () => {
                         </Button>
                     </Box>
                 )}
+                
+                
 
                 {/* Waiting Phase */}
                 {phase === "waiting" && (

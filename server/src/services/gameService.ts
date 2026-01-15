@@ -244,6 +244,16 @@ export class GameService {
 
      }
 
+     // GameService
+    static findGameByPlayerId(playerId: string): { roomId: string, game: GameState } | null {
+        for (const [roomId, game] of activeGames) {
+            if (game.players.some(p => p.id === playerId)) {
+                return { roomId, game };
+            }
+        }
+        return null;
+    }
+
 }
 
 

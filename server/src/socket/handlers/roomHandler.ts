@@ -8,11 +8,29 @@ export const roomHandler = (io: Server, socket: Socket) => {
 
     // join room
     socket.on(SocketEvents.JOIN_ROOM, ({ roomId, playerName }: JoinRoomProps) => {
-        console.log(`🎮 JOIN_ROOM: ${playerName} -> ${roomId}`);
-        
+        console.log(`🎮 JOIN_ROOM: ${playerName} -> ${roomId} - ${socket.id}`);
+
+        const normalizedName = (playerName || "").trim().toLowerCase();
+        if (!roomId || !normalizedName) {
+            socket.emit(SocketEvents.ROOM_ERROR, { message: "שם שחקן לא תקין" });
+            return;
+        }
+
+        // Prevent duplicate names inside the same room
+        const existingRoom = roomManager.getRoom(roomId);
+        if (existingRoom) {
+            const nameTaken = existingRoom.players.some(
+                (p) => (p.name || "").trim().toLowerCase() === normalizedName
+            );
+            if (nameTaken) {
+                socket.emit(SocketEvents.ROOM_ERROR, { message: "שם השחקן כבר בשימוש" });
+                return;
+            }
+        }
+
         const room = roomManager.joinRoom(roomId, {
             id: socket.id,
-            name: playerName,
+            name: playerName.trim(),
             socketId: socket.id,
         });
 

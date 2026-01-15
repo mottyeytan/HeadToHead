@@ -2,7 +2,6 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import { useSocket } from "../../socket/hooks/useSocket";
 import { SocketEvents } from "../../../../../shared/events/socketEvents";
 import type { Player, UseRoomProps } from "../types/room.types";
-import type { Score } from "../../game/types/game.types";
 
 
 export const useRoom = ({ roomId, playerName,  }: UseRoomProps) => {
@@ -25,6 +24,9 @@ export const useRoom = ({ roomId, playerName,  }: UseRoomProps) => {
         const handleRoomError = ({ message }: { message: string }) => {
             console.error("❌ Room error:", message);
             setError(message);
+            // If join failed, make sure we don't treat as joined
+            hasJoinedRef.current = false;
+            setIsInRoom(false);
         };
 
         const handleGameStarted = () => {

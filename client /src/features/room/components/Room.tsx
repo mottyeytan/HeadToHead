@@ -1,5 +1,5 @@
 import { Box, Typography, Button, CircularProgress } from "@mui/material";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import GroupIcon from '@mui/icons-material/Group';
 import PersonIcon from '@mui/icons-material/Person';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
@@ -11,16 +11,21 @@ interface RoomProps {
     playerName: string;
     onStartGame?: () => void;
     onLeaveRoom?: () => void;
+    onJoinError?: (message: string) => void;
 }
 
 
-export const Room = ({ gameId, playerName, onStartGame, onLeaveRoom }: RoomProps) => {
+export const Room = ({ gameId, playerName, onStartGame, onLeaveRoom, onJoinError }: RoomProps) => {
     const { players, error, isInRoom, canStartGame, leaveRoom } = useRoom({ roomId: gameId, playerName });
+    const lastErrorRef = useRef<string | null>(null);
 
-    // leave room when the component is unmounted
-    // useEffect(() => {
-    //     return () => leaveRoom();
-    // }, [leaveRoom]);
+    // Bubble join errors to parent (e.g. duplicate name)
+    useEffect(() => {
+        if (!error) return;
+        if (lastErrorRef.current === error) return;
+        lastErrorRef.current = error;
+        onJoinError?.(error);
+    }, [error, onJoinError]);
 
     const handleLeaveRoom = () => {
         leaveRoom();

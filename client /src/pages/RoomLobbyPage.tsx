@@ -1,4 +1,4 @@
-import { Box,  Container, Typography } from "@mui/material"
+import { Box,  Container, Typography, Snackbar, Alert } from "@mui/material"
 import { useParams, useNavigate } from "react-router-dom"
 import { useState, useEffect, useMemo } from "react"
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
@@ -13,6 +13,7 @@ import { useGame } from "../features/game/hooks/useGame";
 const generateRoomId = () => {
     return Math.random().toString(36).substring(2, 8).toUpperCase();
 };
+
 
 export const RoomLobbyPage = () => {
     const { gameId, roomId: urlRoomId, inviterName } = useParams();
@@ -47,6 +48,7 @@ export const RoomLobbyPage = () => {
     const hostName = inviterName || localStorage.getItem("playerName") || "אורח";
     const [guestName, setGuestName] = useState(isGuest ? "" : hostName);
     const [hasJoined, setHasJoined] = useState(false);
+    const [joinErrorMessage, setJoinErrorMessage] = useState<string | null>(null);
     const currentPlayerName = isGuest ? guestName : hostName;
     
     const handleBack = () => {
@@ -71,6 +73,12 @@ export const RoomLobbyPage = () => {
         }
     };
 
+    const handleJoinError = (message: string) => {
+        // Show snack + return to name input
+        setJoinErrorMessage(message);
+        setHasJoined(false);
+    };
+
     return (
         <Container maxWidth={false} sx={{ 
             padding: "24px", 
@@ -81,6 +89,26 @@ export const RoomLobbyPage = () => {
             gap: "24px",
             minHeight: "100vh",
         }}>
+            <Snackbar
+                open={!!joinErrorMessage}
+                autoHideDuration={3500}
+                onClose={() => setJoinErrorMessage(null)}
+                anchorOrigin={{ vertical: "top", horizontal: "center" }}
+            >
+                <Alert
+                    onClose={() => setJoinErrorMessage(null)}
+                    severity="error"
+                    variant="filled"
+                    sx={{
+                        backgroundColor: "rgba(231, 76, 60, 0.95)",
+                        border: "1px solid rgba(255,255,255,0.15)",
+                        color: "#fff",
+                        backdropFilter: "blur(10px)",
+                    }}
+                >
+                    {joinErrorMessage}
+                </Alert>
+            </Snackbar>
             {/* כפתור יציאה */}
             <ArrowBackIcon 
                 onClick={handleBack}
@@ -126,7 +154,7 @@ export const RoomLobbyPage = () => {
 
             {/* guest - join form */}
             {isGuest && !hasJoined && (
-                <GuestSection onJoinRoom={handleJoinRoom} />
+                <GuestSection onJoinRoom={handleJoinRoom}  />
             )}
 
             {/* guest - after joining - show the room */}
@@ -136,6 +164,7 @@ export const RoomLobbyPage = () => {
                     playerName={currentPlayerName} 
                     onStartGame={handleStartGame}
                     onLeaveRoom={handleBack}
+                    onJoinError={handleJoinError}
                 />
             )}
 

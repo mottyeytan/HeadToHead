@@ -87,6 +87,12 @@ class RoomManager {
         
         player.score += points;
     }
+
+    getPlayersInRoom(roomId: string): Player[] {
+        const room = this.rooms.get(roomId);
+        if (!room) return [];
+        return room.players;
+    }
 }
 
 export const roomManager = new RoomManager();

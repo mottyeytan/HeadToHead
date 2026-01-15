@@ -31,18 +31,21 @@ export const useGame = (roomId: string) => {
     // game started state - for navigation
     const [gameStarted, setGameStarted] = useState<boolean>(false)
 
+    // message state
+    const [GameMessage, setGameMessage] = useState<string | null>(null)
+
 
     useEffect(() => {
         if (!socket || !roomId) return;
     
         //game started 
-        const handleGameStarted = ({ totalQuestions, players, firstQuestion }: { totalQuestions: number, players: Player[], firstQuestion?: { questionIndex: number, question: Question, timeLimit: number } }) => {
+        const handleGameStarted = ({ totalQuestions, players, firstQuestion, message }: { totalQuestions: number, players: Player[], firstQuestion?: { questionIndex: number, question: Question, timeLimit: number }, message?: string }) => {
             console.log("🎮 Game started: ", players);
             gameStartedRef.current = true;  // Mark game as started (for cleanup logic)
             setTotalQuestions(totalQuestions);
             setScores(players.map((p: any) => ({ id: p.id, name: p.name, score: 0 }) ));
             setGameStarted(true); // trigger navigation for all players
-            
+            setGameMessage(message || null)
             // Handle first question if included (to avoid race condition)
             if (firstQuestion) {
                 setPhase("question");
@@ -90,8 +93,7 @@ export const useGame = (roomId: string) => {
         };
 
         // game over 
-     
-        const handleGameOver  = ({finalScores, winner, reason, lastQuestionAnswer}: {
+        const handleGameOver  = ({finalScores, winner, reason, lastQuestionAnswer, message}: {
             finalScores: Score[], 
             winner: string, 
             reason?: string,
@@ -99,14 +101,15 @@ export const useGame = (roomId: string) => {
                 correctAnswer: string,
                 explanation: string,
                 results: PlayerResult[]
-            }
+            },
+            message?: string
         }) => { 
             console.log("🎮 Game over: from useGame hook ", finalScores, winner, reason, lastQuestionAnswer);
             gameEndedNaturallyRef.current = true;
             setPhase("finished")
             setScores(finalScores)
             setWinner(winner)
-            
+            setGameMessage(message || null)
             // Set last question answer if provided
             if (lastQuestionAnswer) {
                 setLastQuestionAnswer({
@@ -114,14 +117,15 @@ export const useGame = (roomId: string) => {
                     explanation: lastQuestionAnswer.explanation,
                     results: lastQuestionAnswer.results
                 })
+                setGameMessage(message || null)
             }
         }
 
         // player left game 
-        const handlePlayerLeftGame = ({playerId, playerName, remainingPlayers}: {playerId: string, playerName: string, remainingPlayers: Player[]}) => {
-            console.log("🎮 Player left game: from useGame hook ", playerId, playerName, remainingPlayers);
+        const handlePlayerLeftGame = ({playerId, playerName, remainingPlayers, message}: {playerId: string, playerName: string, remainingPlayers: Player[], message: string}) => {
+            console.log("🎮 Player left game: from useGame hook ", playerId, playerName, remainingPlayers, message);
             setScores(remainingPlayers.map((p: any) => ({ id: p.id, name: p.name, score: p.score }) ))
-            
+            setGameMessage(message)
         }
 
         // get game state - handler for response
@@ -186,13 +190,13 @@ export const useGame = (roomId: string) => {
 
     const submitAnswer = useCallback((answer: string) => {
         if (!socket || !isConnected || hasAnswered) return;
-        socket.emit(SocketEvents.SUBMIT_ANSWER, {roomId, playerId: socket.id, answer})
+        socket.emit(SocketEvents.SUBMIT_ANSWER, {roomId, answer})
         setHasAnswered(true)
     }, [socket, isConnected, hasAnswered, roomId])
 
     const readyForNextQuestion = useCallback(() => {
         if (!socket || !isConnected) return;
-        socket.emit(SocketEvents.PLAYER_READY, {roomId, playerId: socket.id})
+        socket.emit(SocketEvents.PLAYER_READY, {roomId})
     }, [socket, isConnected, roomId])
 
     const leaveGame = useCallback(() => {
@@ -217,12 +221,13 @@ export const useGame = (roomId: string) => {
         winner,
         gameStarted,
         lastQuestionAnswer,
-
+        GameMessage,
         // actions 
         startGame,
         submitAnswer,
         readyForNextQuestion,
-        leaveGame
+        leaveGame,
+        setGameMessage,
     };
     
 }

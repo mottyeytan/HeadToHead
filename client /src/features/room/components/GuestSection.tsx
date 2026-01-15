@@ -2,13 +2,14 @@ import { Box, Button, InputBase } from "@mui/material";
 import { useState } from "react";
 import LoginIcon from '@mui/icons-material/Login';
 
+
 interface GuestSectionProps {
     onJoinRoom: (name: string) => void;
 }
 
 export const GuestSection = ({ onJoinRoom }: GuestSectionProps) => {
     const [guestName, setGuestName] = useState("");
-
+    
     const handleJoinRoom = () => {
         if (guestName.trim()) {
             onJoinRoom(guestName);
@@ -33,7 +34,7 @@ export const GuestSection = ({ onJoinRoom }: GuestSectionProps) => {
                 placeholder="הכנס את שמך..."
                 value={guestName}
                 onChange={(e) => setGuestName(e.target.value)}
-                onKeyDown={handelEnter}
+                onKeyDown={handelEnter}               
                 sx={{
                     py: 2,
                     px: 3,
