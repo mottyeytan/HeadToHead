@@ -1,0 +1,92 @@
+[
+  {
+    "id": "quick_game_1",
+    "text": "כמה שניות יש לכל שאלה במצב 'משחק מהיר'?",
+    "correctAnswer": "10",
+    "explanation": "במצב משחק מהיר (Quick Game) מוגדר זמן קצר במיוחד לכל שאלה.",
+    "category": "quick_game",
+    "difficulty": "easy",
+    "acceptableAnswers": ["עשר", "10 שניות"]
+  },
+  {
+    "id": "quick_game_2",
+    "text": "כמה שאלות יש בדרך כלל במשחק מהיר (לפי התיאור בדף הבית)?",
+    "correctAnswer": "5",
+    "explanation": "בדף הבית כתוב: 5 שאלות, 10 שניות לכל אחת.",
+    "category": "quick_game",
+    "difficulty": "easy",
+    "acceptableAnswers": ["חמש"]
+  },
+  {
+    "id": "quick_game_3",
+    "text": "מהו מושג במשחקים המתאר 'ניקוד' שמתקבל על תשובות נכונות?",
+    "correctAnswer": "נקודות",
+    "explanation": "במשחקי טריוויה צוברים נקודות על תשובות נכונות.",
+    "category": "quick_game",
+    "difficulty": "easy",
+    "acceptableAnswers": ["points", "score"]
+  },
+  {
+    "id": "quick_game_4",
+    "text": "מה צריך לעשות כדי לנצח במשחק טריוויה מהיר?",
+    "correctAnswer": "לענות נכון מהר",
+    "explanation": "במשחק מהיר הזמן קצר—צריך גם דיוק וגם מהירות.",
+    "category": "quick_game",
+    "difficulty": "medium",
+    "acceptableAnswers": ["לענות נכון", "לענות מהר ונכון", "להיות מהיר"]
+  },
+  {
+    "id": "quick_game_5",
+    "text": "איך נקרא הזמן המוגבל שיש לשאלה במשחק?",
+    "correctAnswer": "טיימר",
+    "explanation": "Timer הוא שעון שמודד את הזמן שנותר לענות.",
+    "category": "quick_game",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Timer", "שעון עצר", "זמן"]
+  },
+  {
+    "id": "quick_game_6",
+    "text": "איזו פעולה בדרך כלל מתחילה משחק חדש?",
+    "correctAnswer": "התחל משחק",
+    "explanation": "במרבית משחקי הטריוויה יש כפתור Start/התחל משחק שמפעיל את הסבב.",
+    "category": "quick_game",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Start", "Start game", "Start Game"]
+  },
+  {
+    "id": "quick_game_7",
+    "text": "מה קורה בדרך כלל אם הזמן לשאלה נגמר?",
+    "correctAnswer": "התשובה נחשבת שגויה",
+    "explanation": "ברוב משחקי הטריוויה אם לא עונים בזמן—לא מקבלים נקודות.",
+    "category": "quick_game",
+    "difficulty": "medium",
+    "acceptableAnswers": ["לא מקבלים נקודות", "נפסל", "טעות"]
+  },
+  {
+    "id": "quick_game_8",
+    "text": "איך נקרא סבב קצר של שאלות אחת אחרי השנייה?",
+    "correctAnswer": "סבב",
+    "explanation": "Round הוא סבב של שאלות שמסתיים בסיכום/תוצאה.",
+    "category": "quick_game",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Round", "ראונד"]
+  },
+  {
+    "id": "quick_game_9",
+    "text": "איזו הודעה נפוצה מוצגת בסיום משחק עם תוצאה?",
+    "correctAnswer": "כל הכבוד",
+    "explanation": "בסיום משחקים נהוג להציג הודעת עידוד לצד התוצאה.",
+    "category": "quick_game",
+    "difficulty": "hard",
+    "acceptableAnswers": ["יפה", "מצוין", "Well done", "Well done!"]
+  },
+  {
+    "id": "quick_game_10",
+    "text": "איך נקרא המסך שמציג את התוצאות והנקודות במשחק?",
+    "correctAnswer": "לוח תוצאות",
+    "explanation": "Scoreboard מציג את הניקוד והשחקנים.",
+    "category": "quick_game",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Scoreboard", "תוצאות", "ניקוד"]
+  }
+]

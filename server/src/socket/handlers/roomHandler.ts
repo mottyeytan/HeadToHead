@@ -1,4 +1,3 @@
-// Room join/leave handler
 import { Server, Socket } from "socket.io";
 import { roomManager } from "../rooms/roomManager";
 import { SocketEvents } from "../../../../shared/events/socketEvents";
@@ -40,6 +39,7 @@ export const roomHandler = (io: Server, socket: Socket) => {
         io.to(roomId).emit(SocketEvents.PLAYERS_UPDATED, {
             players: room.players,
             roomId: room.id,
+            hostSocketId: room.hostSocketId,
         });
     });
 
@@ -54,6 +54,7 @@ export const roomHandler = (io: Server, socket: Socket) => {
             io.to(roomId).emit(SocketEvents.PLAYERS_UPDATED, {
                 players: room.players,
                 roomId: room.id,
+                hostSocketId: room.hostSocketId,
             });
         }
     });
@@ -71,6 +72,7 @@ export const roomHandler = (io: Server, socket: Socket) => {
                 io.to(roomId).emit(SocketEvents.PLAYERS_UPDATED, {
                     players: room.players,
                     roomId: room.id,
+                    hostSocketId: room.hostSocketId,
                 });
             }
         }

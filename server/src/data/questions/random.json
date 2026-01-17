@@ -1,0 +1,92 @@
+[
+  {
+    "id": "random_1",
+    "text": "מה המטרה של מצב 'מיקס אקראי'?",
+    "correctAnswer": "שאלות מכל הקטגוריות",
+    "explanation": "במצב Random נבחרות שאלות ממגוון קטגוריות כדי ליצור משחק מגוון.",
+    "category": "random",
+    "difficulty": "easy",
+    "acceptableAnswers": ["מכל הקטגוריות", "מיקס", "שאלות מעורבות"]
+  },
+  {
+    "id": "random_2",
+    "text": "איזה מנגנון בדרך כלל בוחר שאלות באופן אקראי?",
+    "correctAnswer": "מחולל מספרים אקראיים",
+    "explanation": "Random selection מתבצע לרוב באמצעות פונקציה שמגרילה אינדקסים/מספרים.",
+    "category": "random",
+    "difficulty": "hard",
+    "acceptableAnswers": ["Random", "RNG", "מחולל אקראי"]
+  },
+  {
+    "id": "random_3",
+    "text": "איך נקרא מצב שבו לא ניתן לנחש מראש מה השאלה הבאה?",
+    "correctAnswer": "אקראי",
+    "explanation": "מצב אקראי (=Random) משלב שאלות ללא סדר קבוע.",
+    "category": "random",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Random", "רנדומלי"]
+  },
+  {
+    "id": "random_4",
+    "text": "מה היתרון המרכזי של משחק עם שאלות מעורבות?",
+    "correctAnswer": "גיוון",
+    "explanation": "ערבוב נושאים מייצר גיוון ומאתגר שחקנים בתחומים שונים.",
+    "category": "random",
+    "difficulty": "easy",
+    "acceptableAnswers": ["מגוון", "שונות"]
+  },
+  {
+    "id": "random_5",
+    "text": "איך נקרא תהליך שבו מערבבים רשימה כדי לשנות את הסדר שלה?",
+    "correctAnswer": "ערבוב",
+    "explanation": "Shuffle הוא ערבוב סדר איברים באופן אקראי.",
+    "category": "random",
+    "difficulty": "medium",
+    "acceptableAnswers": ["Shuffle", "שפל", "שאפול"]
+  },
+  {
+    "id": "random_6",
+    "text": "מה יקרה אם יש מעט שאלות בקטגוריה אחת במצב 'מיקס אקראי'?",
+    "correctAnswer": "יישאבו יותר קטגוריות אחרות",
+    "explanation": "כדי להגיע לכמות שאלות מוגדרת, המערכת תוכל לבחור יותר שאלות ממקורות אחרים.",
+    "category": "random",
+    "difficulty": "hard",
+    "acceptableAnswers": ["יבחרו קטגוריות אחרות", "יותר שאלות מקטגוריות אחרות", "ממקורות אחרים"]
+  },
+  {
+    "id": "random_7",
+    "text": "איך נקרא מצב משחק שבו השאלות נבחרות מכלל בנק השאלות?",
+    "correctAnswer": "כללי",
+    "explanation": "במובן של 'Mixed/General', השאלות נמשכות מכל הבנק ולא מנושא אחד.",
+    "category": "random",
+    "difficulty": "medium",
+    "acceptableAnswers": ["Mixed", "General", "מעורב"]
+  },
+  {
+    "id": "random_8",
+    "text": "מה הדבר הראשון שעושים כדי לערבב מערך שאלות בקוד?",
+    "correctAnswer": "להעתיק את המערך",
+    "explanation": "כדי לא לשנות את המקור, מקובל ליצור עותק (למשל [...arr]) ואז לערבב.",
+    "category": "random",
+    "difficulty": "hard",
+    "acceptableAnswers": ["clone", "copy", "שכפול"]
+  },
+  {
+    "id": "random_9",
+    "text": "איך נקרא סוף משחק שבו מוצגת תוצאה סופית?",
+    "correctAnswer": "סיכום",
+    "explanation": "End summary מציג ניקוד סופי וסטטיסטיקות.",
+    "category": "random",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Summary", "תוצאה"]
+  },
+  {
+    "id": "random_10",
+    "text": "מה מקובל לעשות אם שאלה מופיעה פעמיים באותו משחק מעורב?",
+    "correctAnswer": "לדלג עליה",
+    "explanation": "מנוע טריוויה תקין מנסה למנוע כפילויות; אם קרה, מדלגים או מחליפים שאלה.",
+    "category": "random",
+    "difficulty": "medium",
+    "acceptableAnswers": ["להחליף שאלה", "לא להציג אותה", "למנוע כפילויות"]
+  }
+]

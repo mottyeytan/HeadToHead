@@ -17,6 +17,7 @@ class RoomManager {
                 createdAt: new Date(),
                 updatedAt: new Date(),
                 players: [],
+                hostSocketId: player.socketId,
                 status: "waiting",
                 currentQuestionIndex: 0,
             };
@@ -34,6 +35,11 @@ class RoomManager {
         // add player to room
         room.players.push({ ...player, score: 0 });
         room.updatedAt = new Date();
+
+        // if room somehow had no host (or host missing), make first player host
+        if (!room.hostSocketId) {
+            room.hostSocketId = room.players[0].socketId;
+        }
         
         console.log(`👤 Player ${player.name} joined room ${roomId}. Total: ${room.players.length}`);
         return room;
@@ -46,6 +52,11 @@ class RoomManager {
         const playerName = room.players.find(p => p.socketId === socketId)?.name;
         room.players = room.players.filter((player) => player.socketId !== socketId);
         room.updatedAt = new Date();
+
+        // If host left, promote first remaining player to host
+        if (room.hostSocketId === socketId) {
+            room.hostSocketId = room.players[0]?.socketId || "";
+        }
 
         console.log(`👋 Player ${playerName} left room ${roomId}. Remaining: ${room.players.length}`);
 

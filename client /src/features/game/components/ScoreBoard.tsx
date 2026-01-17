@@ -8,27 +8,40 @@ interface ScoreBoardProps {
 export const ScoreBoard = ({ scores }: ScoreBoardProps) => {
     if (!scores || scores.length === 0) return null;
 
-    // Sort by score descending
     const sortedScores = [...scores].sort((a, b) => b.score - a.score);
 
     return (
         <Box
             sx={{
-                backgroundColor: "rgba(255, 255, 255, 0.05)",
-                border: "1px solid rgba(255, 255, 255, 0.1)",
-                borderRadius: 2,
-                p: 2,
+                borderRadius: "12px",
+                backgroundColor: "rgba(255, 255, 255, 0.02)",
+                border: "1px solid rgba(255, 255, 255, 0.06)",
+                overflow: "hidden",
             }}
         >
-            <Typography
-                color="rgba(255, 255, 255, 0.6)"
-                variant="caption"
-                sx={{ mb: 1, display: "block", textAlign: "center" }}
+            {/* Header */}
+            <Box
+                sx={{
+                    px: 2,
+                    py: 1,
+                    borderBottom: "1px solid rgba(255, 255, 255, 0.04)",
+                }}
             >
-                ניקוד
-            </Typography>
-            
-            <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
+                <Typography
+                    sx={{
+                        fontSize: "0.75rem",
+                        fontWeight: 500,
+                        color: "rgba(250, 250, 250, 0.45)",
+                        textAlign: "center",
+                        letterSpacing: "0.02em",
+                    }}
+                >
+                    ניקוד
+                </Typography>
+            </Box>
+
+            {/* Scores */}
+            <Box sx={{ p: 1 }}>
                 {sortedScores.map((score, index) => (
                     <Box
                         key={score.id}
@@ -36,24 +49,55 @@ export const ScoreBoard = ({ scores }: ScoreBoardProps) => {
                             display: "flex",
                             justifyContent: "space-between",
                             alignItems: "center",
-                            gap: 2,
-                            px: 1,
-                            py: 0.5,
-                            borderRadius: 1,
-                            backgroundColor: index === 0 ? "rgba(34, 197, 94, 0.1)" : "transparent",
+                            gap: 1.5,
+                            px: 1.5,
+                            py: 0.75,
+                            borderRadius: "8px",
+                            backgroundColor: index === 0 ? "rgba(16, 185, 129, 0.08)" : "transparent",
+                            transition: "background-color 0.25s ease",
                         }}
                     >
+                        <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                            {/* Rank indicator */}
+                            <Box
+                                sx={{
+                                    width: 20,
+                                    height: 20,
+                                    borderRadius: "6px",
+                                    display: "flex",
+                                    alignItems: "center",
+                                    justifyContent: "center",
+                                    fontSize: "0.7rem",
+                                    fontWeight: 600,
+                                    background: index === 0
+                                        ? "linear-gradient(135deg, #fbbf24, #f59e0b)"
+                                        : "rgba(255, 255, 255, 0.05)",
+                                    color: index === 0 ? "#0d0d0d" : "rgba(250, 250, 250, 0.4)",
+                                }}
+                            >
+                                {index + 1}
+                            </Box>
+
+                            {/* Name */}
+                            <Typography
+                                sx={{
+                                    fontSize: "0.85rem",
+                                    fontWeight: index === 0 ? 600 : 400,
+                                    color: index === 0 ? "#10b981" : "rgba(250, 250, 250, 0.8)",
+                                }}
+                            >
+                                {score.name}
+                            </Typography>
+                        </Box>
+
+                        {/* Score */}
                         <Typography
-                            color={index === 0 ? "#22c55e" : "rgba(255, 255, 255, 0.8)"}
-                            variant="body2"
-                            sx={{ fontWeight: index === 0 ? 600 : 400 }}
-                        >
-                            {index === 0 && "👑 "}{score.name}
-                        </Typography>
-                        <Typography
-                            color={index === 0 ? "#22c55e" : "rgba(255, 255, 255, 0.6)"}
-                            variant="body2"
-                            sx={{ fontWeight: 600 }}
+                            sx={{
+                                fontSize: "0.85rem",
+                                fontWeight: 600,
+                                color: index === 0 ? "#10b981" : "rgba(250, 250, 250, 0.5)",
+                                fontVariantNumeric: "tabular-nums",
+                            }}
                         >
                             {score.score}
                         </Typography>

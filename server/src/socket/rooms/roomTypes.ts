@@ -6,6 +6,7 @@ export interface Room {
     createdAt: Date;
     updatedAt: Date;
     players: Player[];
+    hostSocketId: string;
     status: "waiting" | "started" | "finished";
     currentQuestionIndex: number;
 }

@@ -1,0 +1,92 @@
+[
+  {
+    "id": "food_1",
+    "text": "מהו המאכל האיטלקי הקלאסי שמורכב מבצק, רוטב ועירוב תוספות ונאפה בתנור?",
+    "correctAnswer": "פיצה",
+    "explanation": "פיצה היא מאכל איטלקי מפורסם שמורכב מבצק ועירוב תוספות מעל רוטב.",
+    "category": "food",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Pizza"]
+  },
+  {
+    "id": "food_2",
+    "text": "איזה מרכיב הוא הבסיס להכנת חומוס?",
+    "correctAnswer": "חומוס (גרגרים)",
+    "explanation": "חומוס מכינים בעיקר מגרגרי חומוס מבושלים וטוחנים אותם.",
+    "category": "food",
+    "difficulty": "easy",
+    "acceptableAnswers": ["גרגרי חומוס", "Chickpeas", "חומוס"]
+  },
+  {
+    "id": "food_3",
+    "text": "איך נקרא תבלין שמופק מפרחי כרכום ונחשב לאחד היקרים בעולם?",
+    "correctAnswer": "זעפרן",
+    "explanation": "זעפרן מופק מצלקת פרח הכרכום, בכמויות קטנות מאוד ולכן יקר.",
+    "category": "food",
+    "difficulty": "medium",
+    "acceptableAnswers": ["Saffron"]
+  },
+  {
+    "id": "food_4",
+    "text": "מה השם של המאכל היפני שמכיל אורז וחומץ ולעיתים דג נא?",
+    "correctAnswer": "סושי",
+    "explanation": "סושי הוא מאכל יפני שמבוסס על אורז מתובל ולעיתים דג נא/ירקות.",
+    "category": "food",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Sushi"]
+  },
+  {
+    "id": "food_5",
+    "text": "איך נקרא מרק תאילנדי חריף-חמוץ מפורסם?",
+    "correctAnswer": "טום יאם",
+    "explanation": "Tom Yum הוא מרק תאילנדי קלאסי בטעמים חריפים-חמוצים.",
+    "category": "food",
+    "difficulty": "hard",
+    "acceptableAnswers": ["Tom Yum", "Tom yam", "טום-יאם"]
+  },
+  {
+    "id": "food_6",
+    "text": "מהי המילה הצרפתית לקינוח שמבוסס על קרם ונשרף מעט מעליו?",
+    "correctAnswer": "קרם ברולה",
+    "explanation": "Crème brûlée הוא קינוח עם שכבת סוכר שרופה מעל קרם וניל.",
+    "category": "food",
+    "difficulty": "medium",
+    "acceptableAnswers": ["Creme brulee", "Crème brûlée"]
+  },
+  {
+    "id": "food_7",
+    "text": "איזה מאכל מקסיקני מורכב מטורטייה מגולגלת עם מילוי?",
+    "correctAnswer": "בוריטו",
+    "explanation": "בוריטו הוא טורטייה עם מילוי (בשר/שעועית/אורז/ירקות) שמגולגלת.",
+    "category": "food",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Burrito"]
+  },
+  {
+    "id": "food_8",
+    "text": "איזו גבינה איטלקית משתמשים בה לעיתים להכנת רוטב אלפרדו?",
+    "correctAnswer": "פרמזן",
+    "explanation": "רוטב אלפרדו קלאסי משתמש בחמאה/שמנת וגבינת פרמזן.",
+    "category": "food",
+    "difficulty": "medium",
+    "acceptableAnswers": ["Parmesan", "Parmigiano", "פרמיג'אנו"]
+  },
+  {
+    "id": "food_9",
+    "text": "איך נקרא תערובת תבלינים מצפון אפריקה שמוכרת במטבח המרוקאי?",
+    "correctAnswer": "ראס אל חנות",
+    "explanation": "ראס אל חנות היא תערובת תבלינים עשירה, נפוצה במטבח המרוקאי.",
+    "category": "food",
+    "difficulty": "hard",
+    "acceptableAnswers": ["Ras el hanout", "ראס אלחנות"]
+  },
+  {
+    "id": "food_10",
+    "text": "מהו המשקה שמכינים מפולי קפה קלויים וטחונים?",
+    "correctAnswer": "קפה",
+    "explanation": "קפה מכינים מפולים קלויים וטחונים שממצים מהם טעמים במים.",
+    "category": "food",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Coffee"]
+  }
+]

@@ -1,0 +1,92 @@
+[
+  {
+    "id": "literature_1",
+    "text": "מי כתב את הספר 'הארי פוטר'?",
+    "correctAnswer": "ג'יי. קיי. רולינג",
+    "explanation": "J.K. Rowling היא מחברת סדרת הארי פוטר.",
+    "category": "literature",
+    "difficulty": "easy",
+    "acceptableAnswers": ["J.K. Rowling", "JK Rowling", "Rowling", "רולינג"]
+  },
+  {
+    "id": "literature_2",
+    "text": "מי כתב את 'דון קיחוטה'?",
+    "correctAnswer": "מיגל דה סרוואנטס",
+    "explanation": "'דון קיחוטה' נחשב לאחד מהרומנים החשובים בהיסטוריה ונכתב על ידי סרוואנטס.",
+    "category": "literature",
+    "difficulty": "hard",
+    "acceptableAnswers": ["Miguel de Cervantes", "Cervantes", "סרוואנטס"]
+  },
+  {
+    "id": "literature_3",
+    "text": "מי כתב את הטרגדיה 'רומיאו ויוליה'?",
+    "correctAnswer": "ויליאם שייקספיר",
+    "explanation": "שייקספיר כתב מחזות רבים, ורומיאו ויוליה הוא מהידועים שבהם.",
+    "category": "literature",
+    "difficulty": "easy",
+    "acceptableAnswers": ["William Shakespeare", "Shakespeare", "שייקספיר"]
+  },
+  {
+    "id": "literature_4",
+    "text": "איך נקרא הספר הראשון בסדרת 'שר הטבעות'?",
+    "correctAnswer": "אחוות הטבעת",
+    "explanation": "The Fellowship of the Ring הוא הספר הראשון בטרילוגיית שר הטבעות של טולקין.",
+    "category": "literature",
+    "difficulty": "medium",
+    "acceptableAnswers": ["The Fellowship of the Ring", "אחוות הטבעת"]
+  },
+  {
+    "id": "literature_5",
+    "text": "מהו השם של הסופר הישראלי שכתב את 'סיפור על אהבה וחושך'?",
+    "correctAnswer": "עמוס עוז",
+    "explanation": "'סיפור על אהבה וחושך' הוא ספר אוטוביוגרפי של עמוס עוז.",
+    "category": "literature",
+    "difficulty": "medium",
+    "acceptableAnswers": ["Amos Oz", "עוז"]
+  },
+  {
+    "id": "literature_6",
+    "text": "איזה ז'אנר ספרותי מתאר עולם עתידי עם טכנולוגיה מתקדמת?",
+    "correctAnswer": "מדע בדיוני",
+    "explanation": "Science fiction עוסק לעיתים בעתיד, חלל, טכנולוגיות חדשות וחברות שונות.",
+    "category": "literature",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Sci-Fi", "Science Fiction", "סיינס פיקשן"]
+  },
+  {
+    "id": "literature_7",
+    "text": "איך נקרא הדמות הבלש המפורסמת שיצר ארתור קונן דויל?",
+    "correctAnswer": "שרלוק הולמס",
+    "explanation": "שרלוק הולמס הוא בלש בדיוני מפורסם מאוד, המופיע בסיפורי ארתור קונן דויל.",
+    "category": "literature",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Sherlock Holmes", "הולמס"]
+  },
+  {
+    "id": "literature_8",
+    "text": "מי כתבה את הרומן 'גאווה ודעה קדומה'?",
+    "correctAnswer": "ג'יין אוסטן",
+    "explanation": "Jane Austen כתבה את Pride and Prejudice בתחילת המאה ה-19.",
+    "category": "literature",
+    "difficulty": "medium",
+    "acceptableAnswers": ["Jane Austen", "אוסטן"]
+  },
+  {
+    "id": "literature_9",
+    "text": "איך נקרא ספר הילדים שבו דב קטן מחפש את אמא שלו ושואל חיות אחרות?",
+    "correctAnswer": "אמא שלי?",
+    "explanation": "זהו ספר ילדים מוכר (במקור 'Are You My Mother?') על גור קטן שמחפש את אמא שלו.",
+    "category": "literature",
+    "difficulty": "hard",
+    "acceptableAnswers": ["Are You My Mother?", "Are you my mother", "איפה אמא"]
+  },
+  {
+    "id": "literature_10",
+    "text": "איך נקרא הרומן הדיסטופי של ג'ורג' אורוול על חברה תחת מעקב מתמיד?",
+    "correctAnswer": "1984",
+    "explanation": "1984 מתאר עולם טוטליטרי שבו 'האח הגדול' עוקב אחרי כולם.",
+    "category": "literature",
+    "difficulty": "medium",
+    "acceptableAnswers": ["Nineteen Eighty-Four", "ג'ורג' אורוול", "Orwell"]
+  }
+]

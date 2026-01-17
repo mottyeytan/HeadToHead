@@ -1,0 +1,92 @@
+[
+  {
+    "id": "gaming_1",
+    "text": "איך נקרא משחק הבאטל רויאל הפופולרי של Epic Games?",
+    "correctAnswer": "פורטנייט",
+    "explanation": "Fortnite הוא אחד ממשחקי הבאטל רויאל המפורסמים בעולם.",
+    "category": "gaming",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Fortnite", "fortnite"]
+  },
+  {
+    "id": "gaming_2",
+    "text": "מה השם של פטריית העל שמחזקת את מריו בסדרת Super Mario?",
+    "correctAnswer": "סופר פטרייה",
+    "explanation": "ה-Super Mushroom מגדילה את מריו ונותנת לו כוח בסיסי.",
+    "category": "gaming",
+    "difficulty": "medium",
+    "acceptableAnswers": ["Super Mushroom", "פטרייה", "משרום"]
+  },
+  {
+    "id": "gaming_3",
+    "text": "מהי החברה שמפתחת את סדרת The Legend of Zelda?",
+    "correctAnswer": "נינטנדו",
+    "explanation": "The Legend of Zelda היא סדרה אייקונית של Nintendo.",
+    "category": "gaming",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Nintendo", "nintendo"]
+  },
+  {
+    "id": "gaming_4",
+    "text": "איך נקרא אירוע שבו שחקנים צופים באחרים משחקים בלייב דרך פלטפורמה?",
+    "correctAnswer": "סטרימינג",
+    "explanation": "Streaming הוא שידור חי של משחקים (למשל Twitch/YouTube Live).",
+    "category": "gaming",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Streaming", "streaming", "לייב"]
+  },
+  {
+    "id": "gaming_5",
+    "text": "מה משמעות הקיצור NPC במשחקים?",
+    "correctAnswer": "דמות שאינה שחקן",
+    "explanation": "Non-Player Character היא דמות הנשלטת על ידי המשחק ולא על ידי שחקן.",
+    "category": "gaming",
+    "difficulty": "medium",
+    "acceptableAnswers": ["Non-Player Character", "דמות לא שחקן", "דמות לא נשלטת"]
+  },
+  {
+    "id": "gaming_6",
+    "text": "באיזה משחק נפוץ הביטוי 'Victory Royale'?",
+    "correctAnswer": "פורטנייט",
+    "explanation": "Victory Royale הוא המסך שמופיע כשמנצחים משחק בבאטל רויאל בפורטנייט.",
+    "category": "gaming",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Fortnite"]
+  },
+  {
+    "id": "gaming_7",
+    "text": "איך נקרא משחק שבו שחקנים מתקדמים על ידי צבירת 'נקודות ניסיון'?",
+    "correctAnswer": "RPG",
+    "explanation": "במשחקי תפקידים (RPG) נהוג להתקדם ברמות באמצעות XP.",
+    "category": "gaming",
+    "difficulty": "medium",
+    "acceptableAnswers": ["Role Playing Game", "משחק תפקידים", "רול פליי"]
+  },
+  {
+    "id": "gaming_8",
+    "text": "מה שמה של הקונסולה הניידת/היברידית של נינטנדו שיצאה ב-2017?",
+    "correctAnswer": "נינטנדו סוויץ'",
+    "explanation": "Nintendo Switch היא קונסולה שניתן לשחק בה גם כניידת וגם בטלוויזיה.",
+    "category": "gaming",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Nintendo Switch", "Switch", "סוויץ"]
+  },
+  {
+    "id": "gaming_9",
+    "text": "איך נקרא מצב משחק שבו שחקנים נלחמים אחד נגד השני (Player vs Player)?",
+    "correctAnswer": "PvP",
+    "explanation": "PvP הוא מצב שבו שחקנים מתחרים מול שחקנים אחרים.",
+    "category": "gaming",
+    "difficulty": "easy",
+    "acceptableAnswers": ["PVP", "pvp", "Player vs Player"]
+  },
+  {
+    "id": "gaming_10",
+    "text": "מהו שם הז'אנר של משחק שבו המטרה היא להישאר האחרון בגל של שחקנים רבים?",
+    "correctAnswer": "באטל רויאל",
+    "explanation": "Battle Royale הוא ז'אנר שבו שחקנים רבים מתחילים יחד והמנצח הוא האחרון שנשאר.",
+    "category": "gaming",
+    "difficulty": "medium",
+    "acceptableAnswers": ["Battle Royale", "battle royale", "BR"]
+  }
+]

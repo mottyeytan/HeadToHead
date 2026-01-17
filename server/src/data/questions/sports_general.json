@@ -1,0 +1,92 @@
+[
+  {
+    "id": "sports_general_1",
+    "text": "באיזה ענף משתמשים במחבט וכדור צהוב קטן ומשחקים במגרש עם רשת?",
+    "correctAnswer": "טניס",
+    "explanation": "בטניס משחקים עם מחבט וכדור, והמגרש מחולק על ידי רשת.",
+    "category": "sports_general",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Tennis"]
+  },
+  {
+    "id": "sports_general_2",
+    "text": "איך נקרא ענף הספורט שבו רצים 42.195 ק\"מ?",
+    "correctAnswer": "מרתון",
+    "explanation": "מרתון הוא המרחק הרשמי של 42.195 ק\"מ.",
+    "category": "sports_general",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Marathon"]
+  },
+  {
+    "id": "sports_general_3",
+    "text": "באיזה ספורט יש 4 רבעים ומשחקים עם כדור אליפטי?",
+    "correctAnswer": "פוטבול אמריקאי",
+    "explanation": "בפוטבול אמריקאי יש 4 רבעים והכדור אליפטי.",
+    "category": "sports_general",
+    "difficulty": "medium",
+    "acceptableAnswers": ["American Football", "NFL"]
+  },
+  {
+    "id": "sports_general_4",
+    "text": "איך נקרא ספורט המירוצים שבו מתחרים במכוניות חד-מושביות?",
+    "correctAnswer": "פורמולה 1",
+    "explanation": "Formula 1 היא קטגוריית המירוצים המובילה בעולם למכוניות חד-מושביות.",
+    "category": "sports_general",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Formula 1", "F1", "פורמולה"]
+  },
+  {
+    "id": "sports_general_5",
+    "text": "באיזה ענף ספורט שוחים בתוך בריכה?",
+    "correctAnswer": "שחייה",
+    "explanation": "Swimming מתקיים בבריכות אולימפיות ובים (מים פתוחים).",
+    "category": "sports_general",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Swimming"]
+  },
+  {
+    "id": "sports_general_6",
+    "text": "איך נקרא הספורט שבו מנסים להכניס כדור לחור עם מקלות על דשא?",
+    "correctAnswer": "גולף",
+    "explanation": "בגולף המטרה היא להכניס את הכדור לחור במספר חבטות מינימלי.",
+    "category": "sports_general",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Golf"]
+  },
+  {
+    "id": "sports_general_7",
+    "text": "איך נקרא ענף שבו מתחרים בהרמת משקולות כבדות?",
+    "correctAnswer": "הרמת משקולות",
+    "explanation": "Weightlifting הוא ענף אולימפי הכולל הנפה ודחיקה.",
+    "category": "sports_general",
+    "difficulty": "medium",
+    "acceptableAnswers": ["Weightlifting"]
+  },
+  {
+    "id": "sports_general_8",
+    "text": "באיזה ספורט משתמשים ב'קרש' כדי לגלוש על גלים?",
+    "correctAnswer": "גלישת גלים",
+    "explanation": "Surfing מתבצע על קרש מעל גלי הים.",
+    "category": "sports_general",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Surfing", "סרף"]
+  },
+  {
+    "id": "sports_general_9",
+    "text": "איך נקרא הענף שבו מתחרים על אופניים במסלול כביש ארוך?",
+    "correctAnswer": "רכיבת כביש",
+    "explanation": "Road cycling כולל מרוצים למרחקים ארוכים ולעיתים גם מרוצי שלבים.",
+    "category": "sports_general",
+    "difficulty": "hard",
+    "acceptableAnswers": ["Cycling", "רכיבה", "Road cycling"]
+  },
+  {
+    "id": "sports_general_10",
+    "text": "באיזה ספורט יש קבוצה עם שוער וכדור שמנסים להכניס לשער עם מקלות?",
+    "correctAnswer": "הוקי שדה",
+    "explanation": "Field Hockey הוא משחק קבוצתי עם מקלות וכדור.",
+    "category": "sports_general",
+    "difficulty": "hard",
+    "acceptableAnswers": ["Hockey", "Field Hockey"]
+  }
+]

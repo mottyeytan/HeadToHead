@@ -1,0 +1,92 @@
+[
+  {
+    "id": "viral_1",
+    "text": "איזו אפליקציה המזוהה ביותר עם סרטונים קצרים וטרנדים ויראליים?",
+    "correctAnswer": "טיקטוק",
+    "explanation": "טיקטוק הפכה לפלטפורמה המרכזית לסרטונים קצרים וטרנדים ויראליים ברחבי העולם.",
+    "category": "viral",
+    "difficulty": "easy",
+    "acceptableAnswers": ["TikTok", "tik tok", "טיק טוק"]
+  },
+  {
+    "id": "viral_2",
+    "text": "איך קוראים ל'אתגר' שבו אנשים מצלמים את עצמם שופכים דלי מים קרים למען מטרה?",
+    "correctAnswer": "אתגר דלי הקרח",
+    "explanation": "Ice Bucket Challenge היה טרנד ויראלי לגיוס מודעות ותרומות ל-ALS.",
+    "category": "viral",
+    "difficulty": "medium",
+    "acceptableAnswers": ["Ice Bucket Challenge", "Ice bucket", "דלי הקרח"]
+  },
+  {
+    "id": "viral_3",
+    "text": "איך נקרא תמונה/סרטון מצחיק שרץ ברשת עם טקסט קצר?",
+    "correctAnswer": "מם",
+    "explanation": "מם (meme) הוא יחידת תרבות אינטרנטית שעוברת שיתוף ושינויים.",
+    "category": "viral",
+    "difficulty": "easy",
+    "acceptableAnswers": ["meme", "מימים"]
+  },
+  {
+    "id": "viral_4",
+    "text": "איזה האשטאג מזוהה עם טרנדים של ריקודים וסאונדים בטיקטוק?",
+    "correctAnswer": "#ForYou",
+    "explanation": "עמוד ה-For You הוא הפיד המרכזי בטיקטוק, ו-#ForYou/#FYP נפוצים בטרנדים.",
+    "category": "viral",
+    "difficulty": "medium",
+    "acceptableAnswers": ["#foryou", "FYP", "#FYP", "For You"]
+  },
+  {
+    "id": "viral_5",
+    "text": "איך נקרא סרטון קצר שנעלם אחרי 24 שעות באינסטגרם?",
+    "correctAnswer": "סטורי",
+    "explanation": "Instagram Stories נעלמים אחרי 24 שעות (אלא אם נשמרים בהיילייטס).",
+    "category": "viral",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Story", "Stories", "סיפור"]
+  },
+  {
+    "id": "viral_6",
+    "text": "איזה אתר וידאו מזוהה עם סרטוני 'Let’s Play' ויוצרי תוכן של גיימינג?",
+    "correctAnswer": "יוטיוב",
+    "explanation": "יוטיוב היא הפלטפורמה הכי נפוצה לסרטוני גיימינג, מדריכים וסטרימינג מוקלט.",
+    "category": "viral",
+    "difficulty": "easy",
+    "acceptableAnswers": ["YouTube", "youtube", "יו טיוב"]
+  },
+  {
+    "id": "viral_7",
+    "text": "איך נקרא סרטון שמתקבל כ'תגובה' לסרטון אחר (במיוחד בטיקטוק)?",
+    "correctAnswer": "דואט",
+    "explanation": "Duet מאפשר ליצור סרטון לצד סרטון קיים, והוא כלי מרכזי בוויראליות בטיקטוק.",
+    "category": "viral",
+    "difficulty": "medium",
+    "acceptableAnswers": ["Duet", "דואט טיקטוק", "דו-אט"]
+  },
+  {
+    "id": "viral_8",
+    "text": "מה המשמעות של המונח 'וויראלי' בהקשר של תוכן ברשת?",
+    "correctAnswer": "תוכן שמתפשט מהר",
+    "explanation": "תוכן ויראלי הוא כזה שמקבל שיתופים, צפיות וחשיפה בקצב מהיר מאוד.",
+    "category": "viral",
+    "difficulty": "easy",
+    "acceptableAnswers": ["מתפשט במהירות", "תוכן שמתפשט במהירות", "מתפשט מהר מאוד", "זוכה להרבה שיתופים"]
+  },
+  {
+    "id": "viral_9",
+    "text": "איך נקרא פורמט שבו משתמשים מגיבים לסרטון באמצעות הקלטה של עצמם על גבי הסרטון?",
+    "correctAnswer": "ריאקשן",
+    "explanation": "Reaction videos הם פורמט נפוץ ביוטיוב/טיקטוק בו יוצרים מציגים תגובה לתוכן אחר.",
+    "category": "viral",
+    "difficulty": "medium",
+    "acceptableAnswers": ["Reaction", "תגובה", "ריאקשן וידאו"]
+  },
+  {
+    "id": "viral_10",
+    "text": "איך נקרא מצב שבו אין לך קליטה/גישה לאינטרנט ואתה 'מחוץ לרשת'?",
+    "correctAnswer": "אופליין",
+    "explanation": "Offline פירושו ללא חיבור אינטרנט/רשת זמינה.",
+    "category": "viral",
+    "difficulty": "easy",
+    "acceptableAnswers": ["offline", "Off line", "ללא אינטרנט"]
+  }
+]

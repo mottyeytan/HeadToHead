@@ -1,0 +1,92 @@
+[
+  {
+    "id": "history_1",
+    "text": "באיזו שנה הסתיימה מלחמת העולם השנייה?",
+    "correctAnswer": "1945",
+    "explanation": "מלחמת העולם השנייה הסתיימה באירופה במאי 1945 ובאסיה בספטמבר 1945.",
+    "category": "history",
+    "difficulty": "easy",
+    "acceptableAnswers": []
+  },
+  {
+    "id": "history_2",
+    "text": "מי היה המנהיג של צרפת בזמן המהפכה הצרפתית שנחשב לאחד הסמלים שלה?",
+    "correctAnswer": "רובספייר",
+    "explanation": "מקסימיליאן רובספייר היה דמות מרכזית בתקופת 'שלטון הטרור' של המהפכה.",
+    "category": "history",
+    "difficulty": "hard",
+    "acceptableAnswers": ["Maximilien Robespierre", "Robespierre"]
+  },
+  {
+    "id": "history_3",
+    "text": "איזו אימפריה בנתה את הקולוסיאום ברומא?",
+    "correctAnswer": "האימפריה הרומית",
+    "explanation": "הקולוסיאום נבנה בתקופת הקיסרים מבית פלביוס, באימפריה הרומית.",
+    "category": "history",
+    "difficulty": "easy",
+    "acceptableAnswers": ["רומא", "Rome", "Roman Empire"]
+  },
+  {
+    "id": "history_4",
+    "text": "איך נקרא המסמך שבו הוכרזה עצמאות ארצות הברית?",
+    "correctAnswer": "הכרזת העצמאות",
+    "explanation": "Declaration of Independence נחתמה ב-1776 והכריזה על ניתוק מהממלכה הבריטית.",
+    "category": "history",
+    "difficulty": "medium",
+    "acceptableAnswers": ["Declaration of Independence", "דקלריישן אוף אינדיפנדנס"]
+  },
+  {
+    "id": "history_5",
+    "text": "מה היה השם של התקופה בה אירופה חוותה פריחה תרבותית ומדעית במאות 15–16?",
+    "correctAnswer": "הרנסנס",
+    "explanation": "הרנסנס החל באיטליה והוביל להתפתחות אמנות, מדע והומניזם.",
+    "category": "history",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Renaissance"]
+  },
+  {
+    "id": "history_6",
+    "text": "איזה חומה מפורסמת נפלה בשנת 1989 וסימלה את סיום המלחמה הקרה?",
+    "correctAnswer": "חומת ברלין",
+    "explanation": "נפילת חומת ברלין ב-1989 סימלה את קריסת הגוש המזרחי והתקרבות לאיחוד גרמניה.",
+    "category": "history",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Berlin Wall", "ברלין"]
+  },
+  {
+    "id": "history_7",
+    "text": "מי היה המנהיג של הודו שהוביל מאבק לא-אלים לעצמאות ונודע בכינוי 'מהאטמה'?",
+    "correctAnswer": "מהאטמה גנדי",
+    "explanation": "גנדי הנהיג מאבק של אי-אלימות (Satyagraha) נגד שלטון בריטניה.",
+    "category": "history",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Gandhi", "Mahatma Gandhi", "גנדי"]
+  },
+  {
+    "id": "history_8",
+    "text": "איך נקרא המסלול הימי ההיסטורי שקישר בין אירופה לאסיה והיה חשוב למסחר בתבלינים?",
+    "correctAnswer": "דרך המשי",
+    "explanation": "דרך המשי הייתה רשת נתיבי מסחר יבשתיים וימיים שחיברה בין מזרח למערב במשך מאות שנים.",
+    "category": "history",
+    "difficulty": "medium",
+    "acceptableAnswers": ["Silk Road", "דרך המשי"]
+  },
+  {
+    "id": "history_9",
+    "text": "איזו ספינה טבעה בשנת 1912 ונחשבת לאחד האסונות הימיים המפורסמים בהיסטוריה?",
+    "correctAnswer": "טיטניק",
+    "explanation": "RMS Titanic טבעה באוקיינוס האטלנטי לאחר התנגשות בקרחון.",
+    "category": "history",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Titanic"]
+  },
+  {
+    "id": "history_10",
+    "text": "מה היה השם של המגפה שקטלה מיליונים באירופה במאה ה-14?",
+    "correctAnswer": "המוות השחור",
+    "explanation": "המוות השחור (דבר) התפשט באירופה בשנים 1347–1351 וגרם לתמותה עצומה.",
+    "category": "history",
+    "difficulty": "medium",
+    "acceptableAnswers": ["Black Death", "דבר"]
+  }
+]

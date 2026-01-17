@@ -1,8 +1,7 @@
-import { Box,  Container, Typography, Snackbar, Alert } from "@mui/material"
+import { Box, Container, Typography, Snackbar, Alert, IconButton } from "@mui/material"
 import { useParams, useNavigate } from "react-router-dom"
 import { useState, useEffect, useMemo } from "react"
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import PersonIcon from '@mui/icons-material/Person';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { games } from "../features/questions/data/categories";
 import routes from "../global/router/model/routes.model";
 import { Room } from "../features/room/components/Room";
@@ -14,21 +13,19 @@ const generateRoomId = () => {
     return Math.random().toString(36).substring(2, 8).toUpperCase();
 };
 
-
 export const RoomLobbyPage = () => {
     const { gameId, roomId: urlRoomId, inviterName } = useParams();
     const navigate = useNavigate();
     const game = games[gameId as keyof typeof games] || null;
-    
-    
+
     const isGuest = !!inviterName;
-    
+
     const roomId = useMemo(() => {
         return urlRoomId || generateRoomId();
     }, [urlRoomId]);
 
-    const {startGame, gameStarted} = useGame(roomId as string)
-    
+    const { startGame, gameStarted } = useGame(roomId as string)
+
     useEffect(() => {
         if (!isGuest && !urlRoomId && gameId) {
             const newPath = routes.gameRoom
@@ -38,19 +35,18 @@ export const RoomLobbyPage = () => {
         }
     }, [isGuest, urlRoomId, gameId, roomId, navigate]);
 
-    // Navigate ALL players when game starts (triggered by GAME_STARTED event)
     useEffect(() => {
         if (gameStarted && gameId) {
             navigate(routes.gamePlay.replace(":gameId", gameId).replace(":roomId", roomId));
         }
     }, [gameStarted, gameId, roomId, navigate]);
-    
+
     const hostName = inviterName || localStorage.getItem("playerName") || "אורח";
     const [guestName, setGuestName] = useState(isGuest ? "" : hostName);
     const [hasJoined, setHasJoined] = useState(false);
     const [joinErrorMessage, setJoinErrorMessage] = useState<string | null>(null);
     const currentPlayerName = isGuest ? guestName : hostName;
-    
+
     const handleBack = () => {
         navigate(routes.gameLobby.replace(":gameId", gameId || ""));
     };
@@ -61,8 +57,6 @@ export const RoomLobbyPage = () => {
 
     const handleStartGame = () => {
         startGame(game?.id as string, roomId);
-        // Navigation is handled by useEffect when gameStarted becomes true
-        // This ensures ALL players navigate when the server confirms the game started
     };
 
     const handleJoinRoom = (name: string) => {
@@ -74,153 +68,297 @@ export const RoomLobbyPage = () => {
     };
 
     const handleJoinError = (message: string) => {
-        // Show snack + return to name input
         setJoinErrorMessage(message);
         setHasJoined(false);
     };
 
     return (
-        <Container maxWidth={false} sx={{ 
-            padding: "24px", 
-            maxWidth: "500px", 
-            margin: "0 auto", 
-            display: "flex", 
-            flexDirection: "column", 
-            gap: "24px",
-            minHeight: "100vh",
-        }}>
-            <Snackbar
-                open={!!joinErrorMessage}
-                autoHideDuration={3500}
-                onClose={() => setJoinErrorMessage(null)}
-                anchorOrigin={{ vertical: "top", horizontal: "center" }}
-            >
-                <Alert
-                    onClose={() => setJoinErrorMessage(null)}
-                    severity="error"
-                    variant="filled"
-                    sx={{
-                        backgroundColor: "rgba(231, 76, 60, 0.95)",
-                        border: "1px solid rgba(255,255,255,0.15)",
-                        color: "#fff",
-                        backdropFilter: "blur(10px)",
-                    }}
-                >
-                    {joinErrorMessage}
-                </Alert>
-            </Snackbar>
-            {/* כפתור יציאה */}
-            <ArrowBackIcon 
-                onClick={handleBack}
-                sx={{ 
-                    fontSize: "1.5rem", 
-                    color: "#fff", 
-                    transform: "rotate(180deg)", 
-                    alignSelf: "flex-start", 
-                    cursor: "pointer" 
-                }} 
-            />
-
-            {/* title - player name and game title */}
-            <Box sx={{ 
-                textAlign: "center",
-                backgroundColor: "rgba(30, 60, 30, 0.6)",
-                border: "1px solid rgba(46, 204, 113, 0.3)",
-                borderRadius: "20px",
-                padding: "15px",
-                backdropFilter: "blur(10px)",
-            }}>
-                <Typography sx={{ fontSize: "3rem", mb: 1 }}>
-                    {game?.icon}
-                </Typography>
-                
-                <Typography variant="h5" sx={{ color: "#fff", fontWeight: "bold", mb: 1 }}>
-                    {game?.title}
-                </Typography>
-                
-                {isGuest && !hasJoined ? (
-                    <Typography sx={{ color: "rgba(255,255,255,0.7)", fontSize: "0.95rem" }}>
-                        {inviterName} מזמין אותך למשחק!
-                    </Typography>
-                ) : (
-                    <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 1 }}>
-                        <PersonIcon sx={{ color: "#2ecc71", fontSize: "1.2rem" }} />
-                        <Typography sx={{ color: "rgba(255,255,255,0.9)", fontSize: "1.1rem" }}>
-                            {currentPlayerName}
-                        </Typography>
-                    </Box>
-                )}
-            </Box>
-
-            {/* guest - join form */}
-            {isGuest && !hasJoined && (
-                <GuestSection onJoinRoom={handleJoinRoom}  />
-            )}
-
-            {/* guest - after joining - show the room */}
-            {isGuest && hasJoined && roomId && (
-                <Room 
-                    gameId={roomId}
-                    playerName={currentPlayerName} 
-                    onStartGame={handleStartGame}
-                    onLeaveRoom={handleBack}
-                    onJoinError={handleJoinError}
-                />
-            )}
-
-            {/* not guest - automatically join the room (only if roomId is in URL) */}
-            {!isGuest && urlRoomId && (
-                <>
-                    <Room 
-                        gameId={roomId}
-                        playerName={hostName} 
-                        onStartGame={handleStartGame}
-                        onLeaveRoom={handleBack}
-                    />
-
-            {/* share buttons */}
-            <InviteSection roomId={roomId} />
-                    
-            {/* separator and play alone */}
-            <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-                <Box sx={{ flex: 1, height: "1px", backgroundColor: "rgba(46, 204, 113, 0.3)" }} />
-                <Typography sx={{ color: "rgba(46, 204, 113, 0.7)" }}>או</Typography>
-                <Box sx={{ flex: 1, height: "1px", backgroundColor: "rgba(46, 204, 113, 0.3)" }} />
-            </Box>
-
-            <Box 
-                onClick={handlePlayAlone}
+        <Box
+            sx={{
+                minHeight: "100vh",
+                display: "flex",
+                flexDirection: "column",
+                animation: "fadeIn 0.5s ease-out",
+                "@keyframes fadeIn": {
+                    from: { opacity: 0 },
+                    to: { opacity: 1 },
+                },
+            }}
+        >
+            <Container
+                maxWidth={false}
                 sx={{
+                    maxWidth: "480px",
+                    py: { xs: 3, sm: 4 },
+                    px: { xs: 2, sm: 3 },
                     display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    gap: "8px",
-                    py: 1.5,
-                    cursor: "pointer",
-                    opacity: 0.8,
-                    "&:hover": { opacity: 1 },
-                    transition: "opacity 0.3s ease",
+                    flexDirection: "column",
+                    gap: 3,
+                    flex: 1,
                 }}
             >
-                <Typography sx={{ color: "rgba(255,255,255,0.7)", fontSize: "0.95rem" }}>
-                    שחק לבד
-                </Typography>
-                <ArrowBackIcon 
-                    sx={{ 
-                        fontSize: "1rem", 
-                        color: "rgba(255,255,255,0.7)",
-                        animation: "slideArrow 1.5s ease-in-out infinite",
-                        "@keyframes slideArrow": {
-                            "0%, 100%": { transform: "translateX(0)" },
-                            "50%": { transform: "translateX(-5px)" },
-                        },
-                    }} 
-                />
-            </Box>
-        </>
-    )}
+                {/* Error Snackbar */}
+                <Snackbar
+                    open={!!joinErrorMessage}
+                    autoHideDuration={3500}
+                    onClose={() => setJoinErrorMessage(null)}
+                    anchorOrigin={{ vertical: "top", horizontal: "center" }}
+                >
+                    <Alert
+                        onClose={() => setJoinErrorMessage(null)}
+                        severity="error"
+                        variant="filled"
+                        sx={{
+                            backgroundColor: "rgba(239, 68, 68, 0.95)",
+                            backdropFilter: "blur(10px)",
+                            border: "1px solid rgba(239, 68, 68, 0.3)",
+                            borderRadius: "12px",
+                        }}
+                    >
+                        {joinErrorMessage}
+                    </Alert>
+                </Snackbar>
 
-           
-        </Container>
+                {/* Back Button */}
+                <IconButton
+                    onClick={handleBack}
+                    sx={{
+                        alignSelf: "flex-start",
+                        width: 44,
+                        height: 44,
+                        borderRadius: "12px",
+                        backgroundColor: "rgba(255, 255, 255, 0.03)",
+                        border: "1px solid rgba(255, 255, 255, 0.06)",
+                        color: "rgba(250, 250, 250, 0.6)",
+                        transition: "all 0.25s ease",
+                        "&:hover": {
+                            backgroundColor: "rgba(255, 255, 255, 0.06)",
+                            color: "#fafafa",
+                            borderColor: "rgba(255, 255, 255, 0.1)",
+                        },
+                    }}
+                >
+                    <ArrowForwardIcon sx={{ fontSize: "1.25rem" }} />
+                </IconButton>
+
+                {/* Game Info Header */}
+                <Box
+                    sx={{
+                        textAlign: "center",
+                        py: 4,
+                        px: 3,
+                        borderRadius: "20px",
+                        background: "rgba(255, 255, 255, 0.02)",
+                        border: "1px solid rgba(255, 255, 255, 0.06)",
+                        animation: "fadeInDown 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both",
+                        "@keyframes fadeInDown": {
+                            from: { opacity: 0, transform: "translateY(-16px)" },
+                            to: { opacity: 1, transform: "translateY(0)" },
+                        },
+                    }}
+                >
+                    {/* Game Icon */}
+                    <Box
+                        sx={{
+                            display: "inline-flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            width: 72,
+                            height: 72,
+                            borderRadius: "18px",
+                            background: "rgba(255, 255, 255, 0.03)",
+                            border: "1px solid rgba(255, 255, 255, 0.06)",
+                            fontSize: "2.25rem",
+                            mb: 2.5,
+                        }}
+                    >
+                        {game?.icon}
+                    </Box>
+
+                    {/* Game Title */}
+                    <Typography
+                        variant="h5"
+                        sx={{
+                            fontSize: "1.35rem",
+                            fontWeight: 600,
+                            color: "#fafafa",
+                            mb: 1.5,
+                            letterSpacing: "-0.01em",
+                        }}
+                    >
+                        {game?.title}
+                    </Typography>
+
+                    {/* Player Info or Invitation */}
+                    {isGuest && !hasJoined ? (
+                        <Typography
+                            sx={{
+                                color: "rgba(250, 250, 250, 0.6)",
+                                fontSize: "0.95rem",
+                            }}
+                        >
+                            <Box
+                                component="span"
+                                sx={{ color: "#10b981", fontWeight: 500 }}
+                            >
+                                {inviterName}
+                            </Box>
+                            {" "}מזמין אותך למשחק
+                        </Typography>
+                    ) : (
+                        <Box
+                            sx={{
+                                display: "inline-flex",
+                                alignItems: "center",
+                                gap: 1,
+                                px: 2,
+                                py: 0.75,
+                                borderRadius: "8px",
+                                background: "rgba(16, 185, 129, 0.1)",
+                                border: "1px solid rgba(16, 185, 129, 0.2)",
+                            }}
+                        >
+                            <Box
+                                sx={{
+                                    width: 8,
+                                    height: 8,
+                                    borderRadius: "50%",
+                                    backgroundColor: "#10b981",
+                                    boxShadow: "0 0 8px rgba(16, 185, 129, 0.5)",
+                                }}
+                            />
+                            <Typography
+                                sx={{
+                                    color: "#10b981",
+                                    fontSize: "0.9rem",
+                                    fontWeight: 500,
+                                }}
+                            >
+                                {currentPlayerName}
+                            </Typography>
+                        </Box>
+                    )}
+                </Box>
+
+                {/* Guest Join Form */}
+                {isGuest && !hasJoined && (
+                    <Box
+                        sx={{
+                            animation: "fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both",
+                            "@keyframes fadeInUp": {
+                                from: { opacity: 0, transform: "translateY(16px)" },
+                                to: { opacity: 1, transform: "translateY(0)" },
+                            },
+                        }}
+                    >
+                        <GuestSection onJoinRoom={handleJoinRoom} />
+                    </Box>
+                )}
+
+                {/* Room Section (Guest after joining) */}
+                {isGuest && hasJoined && roomId && (
+                    <Box
+                        sx={{
+                            animation: "fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1)",
+                        }}
+                    >
+                        <Room
+                            gameId={roomId}
+                            playerName={currentPlayerName}
+                            onStartGame={handleStartGame}
+                            onLeaveRoom={handleBack}
+                            onJoinError={handleJoinError}
+                        />
+                    </Box>
+                )}
+
+                {/* Host View */}
+                {!isGuest && urlRoomId && (
+                    <Box sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
+                        {/* Room Component */}
+                        <Box
+                            sx={{
+                                animation: "fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both",
+                                "@keyframes fadeInUp": {
+                                    from: { opacity: 0, transform: "translateY(16px)" },
+                                    to: { opacity: 1, transform: "translateY(0)" },
+                                },
+                            }}
+                        >
+                            <Room
+                                gameId={roomId}
+                                playerName={hostName}
+                                onStartGame={handleStartGame}
+                                onLeaveRoom={handleBack}
+                            />
+                        </Box>
+
+                        {/* Invite Section */}
+                        <Box
+                            sx={{
+                                animation: "fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both",
+                            }}
+                        >
+                            <InviteSection roomId={roomId} />
+                        </Box>
+
+                        {/* Divider */}
+                        <Box
+                            sx={{
+                                display: "flex",
+                                alignItems: "center",
+                                gap: 2,
+                                animation: "fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both",
+                            }}
+                        >
+                            <Box sx={{ flex: 1, height: "1px", background: "rgba(255, 255, 255, 0.06)" }} />
+                            <Typography sx={{ color: "rgba(250, 250, 250, 0.3)", fontSize: "0.85rem" }}>
+                                או
+                            </Typography>
+                            <Box sx={{ flex: 1, height: "1px", background: "rgba(255, 255, 255, 0.06)" }} />
+                        </Box>
+
+                        {/* Play Alone Link */}
+                        <Box
+                            onClick={handlePlayAlone}
+                            sx={{
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                                gap: 1,
+                                py: 1.5,
+                                cursor: "pointer",
+                                borderRadius: "12px",
+                                transition: "all 0.25s ease",
+                                animation: "fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both",
+                                "&:hover": {
+                                    backgroundColor: "rgba(255, 255, 255, 0.03)",
+                                },
+                            }}
+                        >
+                            <Typography
+                                sx={{
+                                    color: "rgba(250, 250, 250, 0.5)",
+                                    fontSize: "0.9rem",
+                                    transition: "color 0.25s ease",
+                                    "&:hover": {
+                                        color: "rgba(250, 250, 250, 0.7)",
+                                    },
+                                }}
+                            >
+                                התחל לשחק לבד
+                            </Typography>
+                            <ArrowForwardIcon
+                                sx={{
+                                    fontSize: "1rem",
+                                    color: "rgba(250, 250, 250, 0.4)",
+                                    transform: "rotate(180deg)",
+                                }}
+                            />
+                        </Box>
+                    </Box>
+                )}
+            </Container>
+        </Box>
     )
 }

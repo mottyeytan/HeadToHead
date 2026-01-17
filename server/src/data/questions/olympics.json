@@ -1,0 +1,92 @@
+[
+  {
+    "id": "olympics_1",
+    "text": "כל כמה שנים מתקיימים המשחקים האולימפיים (אולימפיאדת קיץ)?",
+    "correctAnswer": "4",
+    "explanation": "אולימפיאדת הקיץ מתקיימת אחת ל-4 שנים.",
+    "category": "olympics",
+    "difficulty": "easy",
+    "acceptableAnswers": ["ארבע"]
+  },
+  {
+    "id": "olympics_2",
+    "text": "איך נקראת העיר שבה התקיימה אולימפיאדת 2012?",
+    "correctAnswer": "לונדון",
+    "explanation": "אולימפיאדת 2012 נערכה בלונדון, בריטניה.",
+    "category": "olympics",
+    "difficulty": "easy",
+    "acceptableAnswers": ["London"]
+  },
+  {
+    "id": "olympics_3",
+    "text": "מהם חמשת הטבעות בדגל האולימפי מסמלות?",
+    "correctAnswer": "חמש היבשות",
+    "explanation": "חמש הטבעות מסמלות את אחדות חמש היבשות המשתתפות במשחקים.",
+    "category": "olympics",
+    "difficulty": "medium",
+    "acceptableAnswers": ["היבשות", "השתתפות היבשות"]
+  },
+  {
+    "id": "olympics_4",
+    "text": "איזה ענף ספורט כולל מקצים קצרים עם מסלול ריצה?",
+    "correctAnswer": "אתלטיקה",
+    "explanation": "באתלטיקה יש ריצות ספרינט, ריצות ביניים ומרחקים ועוד.",
+    "category": "olympics",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Athletics", "מסלול"]
+  },
+  {
+    "id": "olympics_5",
+    "text": "איך נקראת המדליה שמקבל הזוכה במקום הראשון?",
+    "correctAnswer": "מדליית זהב",
+    "explanation": "המנצח במקום הראשון מקבל מדליית זהב.",
+    "category": "olympics",
+    "difficulty": "easy",
+    "acceptableAnswers": ["זהב", "Gold"]
+  },
+  {
+    "id": "olympics_6",
+    "text": "איזה אירוע אולימפי מפורסם כולל ריצה, שחייה ורכיבה על אופניים?",
+    "correctAnswer": "טריאתלון",
+    "explanation": "טריאתלון משלב שחייה, רכיבה וריצה ברצף.",
+    "category": "olympics",
+    "difficulty": "medium",
+    "acceptableAnswers": ["Triathlon", "תלת קרב"]
+  },
+  {
+    "id": "olympics_7",
+    "text": "מהו הטקס שבו מדליקים את הלפיד האולימפי בתחילת המשחקים?",
+    "correctAnswer": "טקס הפתיחה",
+    "explanation": "בטקס הפתיחה מתקיימת גם תהלוכת המשלחות והדלקת הלפיד באצטדיון המרכזי.",
+    "category": "olympics",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Opening Ceremony", "טקס פתיחה"]
+  },
+  {
+    "id": "olympics_8",
+    "text": "איזה ענף כולל קפיצות למים ממקפצה או מגדל?",
+    "correctAnswer": "קפיצה למים",
+    "explanation": "Diving הוא ענף הכולל קפיצות עם ביצוע תרגילים אקרובטיים.",
+    "category": "olympics",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Diving", "דייבינג"]
+  },
+  {
+    "id": "olympics_9",
+    "text": "איזה ספורט לחימה אולימפי משתמש בחליפה לבנה וחגורות?",
+    "correctAnswer": "ג'ודו",
+    "explanation": "בג'ודו לובשים ג'ודוגי וחגורות המסמלות דרגה.",
+    "category": "olympics",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Judo", "ג׳ודו"]
+  },
+  {
+    "id": "olympics_10",
+    "text": "איך נקרא הענף שבו ספורטאים מבצעים תרגילים על מכשירים כמו מתח וסוס קפיצות?",
+    "correctAnswer": "התעמלות מכשירים",
+    "explanation": "Artistic Gymnastics כוללת תרגילים על מכשירים שונים.",
+    "category": "olympics",
+    "difficulty": "medium",
+    "acceptableAnswers": ["Gymnastics", "Gym", "התעמלות"]
+  }
+]

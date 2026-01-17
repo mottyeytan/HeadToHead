@@ -8,6 +8,24 @@ import geographyQuestions from './geography.json';
 import israelHistoryQuestions from './israel_history.json';
 import scienceQuestions from './science.json';
 
+// New categories from client Home page
+import viralQuestions from './viral.json';
+import celebsQuestions from './celebs.json';
+import gamingQuestions from './gaming.json';
+import historyQuestions from './history.json';
+import natureQuestions from './nature.json';
+import literatureQuestions from './literature.json';
+import basketballQuestions from './basketball.json';
+import olympicsQuestions from './olympics.json';
+import sportsGeneralQuestions from './sports_general.json';
+import israelCultureQuestions from './israel_culture.json';
+import israelGeographyQuestions from './israel_geography.json';
+import foodQuestions from './food.json';
+import travelQuestions from './travel.json';
+import artQuestions from './art.json';
+import randomQuestions from './random.json';
+import quickGameQuestions from './quick_game.json';
+
 // Question bank - all questions organized by category
 export const questionBank: QuestionBank = {
     music: musicQuestions as Question[],
@@ -16,6 +34,24 @@ export const questionBank: QuestionBank = {
     geography: geographyQuestions as Question[],
     israel_history: israelHistoryQuestions as Question[],
     science: scienceQuestions as Question[],
+
+    // New categories
+    viral: viralQuestions as Question[],
+    celebs: celebsQuestions as Question[],
+    gaming: gamingQuestions as Question[],
+    history: historyQuestions as Question[],
+    nature: natureQuestions as Question[],
+    literature: literatureQuestions as Question[],
+    basketball: basketballQuestions as Question[],
+    olympics: olympicsQuestions as Question[],
+    sports_general: sportsGeneralQuestions as Question[],
+    israel_culture: israelCultureQuestions as Question[],
+    israel_geography: israelGeographyQuestions as Question[],
+    food: foodQuestions as Question[],
+    travel: travelQuestions as Question[],
+    art: artQuestions as Question[],
+    random: randomQuestions as Question[],
+    quick_game: quickGameQuestions as Question[],
 };
 
 // Get questions by category

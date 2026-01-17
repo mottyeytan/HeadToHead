@@ -1,0 +1,92 @@
+[
+  {
+    "id": "nature_1",
+    "text": "איזו חיה נחשבת ליונק היבשתי הגדול ביותר?",
+    "correctAnswer": "פיל אפריקאי",
+    "explanation": "הפיל האפריקאי הוא היונק היבשתי הגדול ביותר מבחינת משקל וגובה.",
+    "category": "nature",
+    "difficulty": "easy",
+    "acceptableAnswers": ["פיל", "African elephant", "Elephant"]
+  },
+  {
+    "id": "nature_2",
+    "text": "איך נקרא התהליך שבו צמחים מייצרים מזון בעזרת אור השמש?",
+    "correctAnswer": "פוטוסינתזה",
+    "explanation": "בפוטוסינתזה הצמח משתמש באור, מים ופחמן דו-חמצני כדי לייצר סוכרים וחמצן.",
+    "category": "nature",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Photosynthesis"]
+  },
+  {
+    "id": "nature_3",
+    "text": "איזו ציפור אינה יכולה לעוף ונחשבת לעוף הגדול בעולם?",
+    "correctAnswer": "יען",
+    "explanation": "היען הוא העוף הגדול בעולם והוא מותאם לריצה מהירה במקום תעופה.",
+    "category": "nature",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Ostrich", "אוסטריץ"]
+  },
+  {
+    "id": "nature_4",
+    "text": "איך נקרא בית הגידול שבו כמעט ואין משקעים ומעט מאוד צמחייה?",
+    "correctAnswer": "מדבר",
+    "explanation": "מדבר מאופיין בכמות משקעים נמוכה מאוד וטמפרטורות קיצוניות.",
+    "category": "nature",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Desert"]
+  },
+  {
+    "id": "nature_5",
+    "text": "איזה בעל חיים מפורסם ביכולת לשנות צבע כדי להסוות את עצמו?",
+    "correctAnswer": "זיקית",
+    "explanation": "זיקיות משנות צבע בעזרת תאי פיגמנט מיוחדים בעור.",
+    "category": "nature",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Chameleon", "קמליאון"]
+  },
+  {
+    "id": "nature_6",
+    "text": "איך נקרא הלוויתן הגדול ביותר בעולם?",
+    "correctAnswer": "לוויתן כחול",
+    "explanation": "הלוויתן הכחול הוא בעל החיים הגדול ביותר שחי כיום על פני כדור הארץ.",
+    "category": "nature",
+    "difficulty": "medium",
+    "acceptableAnswers": ["Blue whale", "Blue Whale", "לווייתן כחול"]
+  },
+  {
+    "id": "nature_7",
+    "text": "איזה עץ מפורסם בכך שהוא יכול לחיות אלפי שנים?",
+    "correctAnswer": "סקויה",
+    "explanation": "עצי סקויה ענקיים יכולים לחיות מאות עד אלפי שנים.",
+    "category": "nature",
+    "difficulty": "medium",
+    "acceptableAnswers": ["Sequoia"]
+  },
+  {
+    "id": "nature_8",
+    "text": "איך נקרא החלק בצמח שאחראי לקליטת מים ומינרלים מהקרקע?",
+    "correctAnswer": "שורש",
+    "explanation": "השורשים קולטים מים ומלחים מהקרקע ומעגנים את הצמח.",
+    "category": "nature",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Roots", "Root"]
+  },
+  {
+    "id": "nature_9",
+    "text": "איזה חרק ידוע ביכולת לעקוץ ולהפיק דבש?",
+    "correctAnswer": "דבורה",
+    "explanation": "דבורים מייצרות דבש מצוף וממלאות תפקיד חשוב בהאבקת צמחים.",
+    "category": "nature",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Bee"]
+  },
+  {
+    "id": "nature_10",
+    "text": "איך נקרא סוג היער הצפוף והלח שנמצא סמוך לקו המשווה?",
+    "correctAnswer": "יער גשם טרופי",
+    "explanation": "יערות גשם טרופיים הם עשירים במינים ומקבלים כמות משקעים גבוהה מאוד.",
+    "category": "nature",
+    "difficulty": "medium",
+    "acceptableAnswers": ["Tropical rainforest", "Rainforest", "יער גשם"]
+  }
+]

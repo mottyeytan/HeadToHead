@@ -1,0 +1,92 @@
+[
+  {
+    "id": "celebs_1",
+    "text": "איך נקרא טקס פרסי הקולנוע היוקרתי ביותר בהוליווד?",
+    "correctAnswer": "האוסקר",
+    "explanation": "פרסי האוסקר (Academy Awards) נחשבים לטקס החשוב ביותר בתעשיית הקולנוע האמריקאית.",
+    "category": "celebs",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Oscars", "Oscar", "Academy Awards"]
+  },
+  {
+    "id": "celebs_2",
+    "text": "איך נקרא השטיח שבו מצלמים סלבריטאים בהשקות וטקסים?",
+    "correctAnswer": "שטיח אדום",
+    "explanation": "ה'שטיח האדום' הוא סמל לאירועי יוקרה וצילומי אופנה באירועים גדולים.",
+    "category": "celebs",
+    "difficulty": "easy",
+    "acceptableAnswers": ["השטיח האדום", "Red carpet", "red carpet"]
+  },
+  {
+    "id": "celebs_3",
+    "text": "איזה תפקיד מפורסם משחק גל גדות בסרטי DC?",
+    "correctAnswer": "וונדר וומן",
+    "explanation": "גל גדות מגלמת את Wonder Woman ביקום הקולנועי של DC.",
+    "category": "celebs",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Wonder Woman", "דיאנה פרינס"]
+  },
+  {
+    "id": "celebs_4",
+    "text": "איך נקרא אדם שיש לו קהל גדול ברשתות חברתיות ומשפיע על טרנדים?",
+    "correctAnswer": "אינפלואנסר",
+    "explanation": "Influencer הוא יוצר/ת תוכן בעלי השפעה על עוקבים, מותגים וטרנדים.",
+    "category": "celebs",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Influencer", "משפיען", "משפיענית"]
+  },
+  {
+    "id": "celebs_5",
+    "text": "איזה פרס מוענק לטלוויזיה (סדרות) בארה\"ב ונחשב יוקרתי במיוחד?",
+    "correctAnswer": "אמי",
+    "explanation": "פרסי האמי (Emmy Awards) הם המקבילה הטלוויזיונית לאוסקר.",
+    "category": "celebs",
+    "difficulty": "medium",
+    "acceptableAnswers": ["Emmy", "Emmys"]
+  },
+  {
+    "id": "celebs_6",
+    "text": "מהי המטרה העיקרית של יחסי ציבור עבור סלבריטאי/מותג אישי?",
+    "correctAnswer": "ניהול תדמית",
+    "explanation": "יחסי ציבור עוסקים בבניית/שמירה על תדמית חיובית ותקשורת עם הקהל והתקשורת.",
+    "category": "celebs",
+    "difficulty": "medium",
+    "acceptableAnswers": ["תדמית", "ניהול מוניטין", "מוניטין"]
+  },
+  {
+    "id": "celebs_7",
+    "text": "איך נקרא צילום של צלם שממתין לסלבריטאים מחוץ לאירועים כדי לתפוס תמונות?",
+    "correctAnswer": "פפארצי",
+    "explanation": "פפארצי הם צלמים המתמחים בצילום מפורסמים, לעיתים ללא תיאום.",
+    "category": "celebs",
+    "difficulty": "easy",
+    "acceptableAnswers": ["paparazzi", "Paparazzi"]
+  },
+  {
+    "id": "celebs_8",
+    "text": "איך נקרא 'כינוי משתמש' שמתחיל ב-@ ברשתות חברתיות?",
+    "correctAnswer": "ידית",
+    "explanation": "Handle הוא שם המשתמש/הכינוי שמופיע לצד @ ברשתות כמו אינסטגרם וטוויטר.",
+    "category": "celebs",
+    "difficulty": "medium",
+    "acceptableAnswers": ["handle", "Handle", "שם משתמש", "יוזר"]
+  },
+  {
+    "id": "celebs_9",
+    "text": "מה נקרא מצב שבו מותג משלם לסלבריטאי/יוצר תוכן כדי לפרסם מוצר?",
+    "correctAnswer": "שיתוף פעולה ממומן",
+    "explanation": "Sponsored collaboration/paid partnership הוא פרסום בתשלום דרך יוצר/ת תוכן.",
+    "category": "celebs",
+    "difficulty": "medium",
+    "acceptableAnswers": ["פרסום ממומן", "Paid partnership", "שיתוף פעולה בתשלום", "חסות"]
+  },
+  {
+    "id": "celebs_10",
+    "text": "איך נקרא אירוע שבו מותג/סלבריטאי מציג מוצר/פרויקט חדש מול תקשורת וקהל?",
+    "correctAnswer": "השקה",
+    "explanation": "אירוע השקה (Launch event) נועד לייצר באזז תקשורתי סביב מוצר או פרויקט.",
+    "category": "celebs",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Launch", "Launch event", "אירוע השקה"]
+  }
+]

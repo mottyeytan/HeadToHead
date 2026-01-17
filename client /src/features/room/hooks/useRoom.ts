@@ -7,6 +7,7 @@ import type { Player, UseRoomProps } from "../types/room.types";
 export const useRoom = ({ roomId, playerName,  }: UseRoomProps) => {
     const { socket, isConnected } = useSocket();
     const [players, setPlayers] = useState<Player[]>([]);
+    const [hostSocketId, setHostSocketId] = useState<string | null>(null);
     const [error, setError] = useState<string | null>(null);
     const [isInRoom, setIsInRoom] = useState(false);
     const hasJoinedRef = useRef(false);
@@ -16,9 +17,12 @@ export const useRoom = ({ roomId, playerName,  }: UseRoomProps) => {
     useEffect(() => {
         if (!socket) return;
 
-        const handlePlayersUpdated = (data: { players: Player[] }) => {
+        const handlePlayersUpdated = (data: { players: Player[]; hostSocketId?: string }) => {
             console.log("👥 Players updated:", data);
             setPlayers(data.players);
+            if (typeof data.hostSocketId === "string") {
+                setHostSocketId(data.hostSocketId);
+            }
         };
 
         const handleRoomError = ({ message }: { message: string }) => {
@@ -82,6 +86,8 @@ export const useRoom = ({ roomId, playerName,  }: UseRoomProps) => {
 
     return {
         players,
+        hostSocketId,
+        isHost: !!socket?.id && !!hostSocketId && socket.id === hostSocketId,
         error,
         isInRoom,
         canStartGame: players.length >= 2,

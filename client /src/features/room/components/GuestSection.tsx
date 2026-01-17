@@ -1,7 +1,6 @@
 import { Box, Button, InputBase } from "@mui/material";
 import { useState } from "react";
-import LoginIcon from '@mui/icons-material/Login';
-
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 interface GuestSectionProps {
     onJoinRoom: (name: string) => void;
@@ -9,58 +8,82 @@ interface GuestSectionProps {
 
 export const GuestSection = ({ onJoinRoom }: GuestSectionProps) => {
     const [guestName, setGuestName] = useState("");
-    
+    const [isFocused, setIsFocused] = useState(false);
+
     const handleJoinRoom = () => {
         if (guestName.trim()) {
             onJoinRoom(guestName);
         }
     };
 
-    const handelEnter = (e: React.KeyboardEvent<HTMLInputElement>) => {
-        if (e.key === "Enter") {
+    const handleEnter = (e: React.KeyboardEvent<HTMLInputElement>) => {
+        if (e.key === "Enter" && guestName.trim()) {
             handleJoinRoom();
         }
     };
 
     return (
-        <Box sx={{ 
-            display: "flex", 
-            flexDirection: "row",
-            boxShadow: "0 8px 32px rgba(0,0,0,0.3)",
-            borderRadius: "50px",
-            overflow: "hidden",
-        }}>
+        <Box
+            sx={{
+                display: "flex",
+                flexDirection: "row",
+                borderRadius: "16px",
+                overflow: "hidden",
+                backgroundColor: "rgba(255, 255, 255, 0.03)",
+                border: `1px solid ${isFocused ? "rgba(16, 185, 129, 0.4)" : "rgba(255, 255, 255, 0.08)"}`,
+                boxShadow: isFocused
+                    ? "0 0 0 4px rgba(16, 185, 129, 0.1), 0 8px 32px rgba(0, 0, 0, 0.3)"
+                    : "0 4px 24px rgba(0, 0, 0, 0.2)",
+                transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
+            }}
+        >
             <InputBase
-                placeholder="הכנס את שמך..."
+                placeholder="השם שלך..."
                 value={guestName}
                 onChange={(e) => setGuestName(e.target.value)}
-                onKeyDown={handelEnter}               
+                onFocus={() => setIsFocused(true)}
+                onBlur={() => setIsFocused(false)}
+                onKeyDown={handleEnter}
                 sx={{
-                    py: 2,
-                    px: 3,
-                    fontSize: "1.1rem",
-                    backgroundColor: "rgba(255,255,255,0.95)",
-                    color: "#333",
                     flex: 1,
+                    py: 2,
+                    px: 2.5,
+                    fontSize: "1.05rem",
+                    color: "#fafafa",
                     direction: "rtl",
+                    "& input::placeholder": {
+                        color: "rgba(250, 250, 250, 0.35)",
+                        opacity: 1,
+                    },
                 }}
             />
-            <Button 
+            <Button
                 variant="contained"
                 onClick={handleJoinRoom}
                 disabled={!guestName.trim()}
-                endIcon={<LoginIcon />}
+                endIcon={<ArrowBackIcon sx={{ fontSize: "1rem !important" }} />}
                 sx={{
-                    py: 2,
                     px: 3,
-                    fontSize: "1.1rem",
-                    fontWeight: "bold",
+                    fontSize: "1rem",
+                    fontWeight: 600,
                     borderRadius: 0,
-                    background: "linear-gradient(135deg, #2ecc71 0%, #27ae60 100%)",
+                    background: guestName.trim()
+                        ? "linear-gradient(135deg, #10b981 0%, #059669 100%)"
+                        : "rgba(255, 255, 255, 0.05)",
+                    color: guestName.trim() ? "#fff" : "rgba(250, 250, 250, 0.3)",
                     textTransform: "none",
-                    "&:disabled": {
-                        background: "rgba(150,150,150,0.5)",
-                        color: "rgba(255,255,255,0.5)",
+                    minWidth: "100px",
+                    boxShadow: "none",
+                    transition: "all 0.3s ease",
+                    "&:hover": {
+                        background: guestName.trim()
+                            ? "linear-gradient(135deg, #059669 0%, #047857 100%)"
+                            : "rgba(255, 255, 255, 0.05)",
+                        boxShadow: guestName.trim() ? "0 0 20px rgba(16, 185, 129, 0.3)" : "none",
+                    },
+                    "&.Mui-disabled": {
+                        background: "rgba(255, 255, 255, 0.05)",
+                        color: "rgba(250, 250, 250, 0.25)",
                     },
                 }}
             >

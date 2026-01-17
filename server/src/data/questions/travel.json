@@ -1,0 +1,92 @@
+[
+  {
+    "id": "travel_1",
+    "text": "מהי עיר הבירה של איטליה?",
+    "correctAnswer": "רומא",
+    "explanation": "רומא היא עיר הבירה של איטליה ואחת הערים ההיסטוריות בעולם.",
+    "category": "travel",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Rome"]
+  },
+  {
+    "id": "travel_2",
+    "text": "איך נקרא מסמך חובה לטיסות בינלאומיות?",
+    "correctAnswer": "דרכון",
+    "explanation": "דרכון הוא מסמך זיהוי רשמי המאפשר כניסה למדינות אחרות.",
+    "category": "travel",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Passport"]
+  },
+  {
+    "id": "travel_3",
+    "text": "מהו השם של מגדל השעון המפורסם בלונדון (לפי הכינוי הנפוץ)?",
+    "correctAnswer": "ביג בן",
+    "explanation": "ביג בן הוא הכינוי הנפוץ למגדל השעון בארמון וסטמינסטר בלונדון.",
+    "category": "travel",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Big Ben"]
+  },
+  {
+    "id": "travel_4",
+    "text": "באיזה עיר נמצאת החומה הסינית (באיזו מדינה)?",
+    "correctAnswer": "סין",
+    "explanation": "החומה הגדולה של סין נמצאת במדינת סין ומשתרעת על פני אלפי קילומטרים.",
+    "category": "travel",
+    "difficulty": "easy",
+    "acceptableAnswers": ["China"]
+  },
+  {
+    "id": "travel_5",
+    "text": "איך נקרא אזור קרחוני בקוטב הצפוני?",
+    "correctAnswer": "הארקטי",
+    "explanation": "הקוטב הצפוני נמצא באזור הארקטי, המאופיין בקרח ים וטונדרה.",
+    "category": "travel",
+    "difficulty": "hard",
+    "acceptableAnswers": ["Arctic"]
+  },
+  {
+    "id": "travel_6",
+    "text": "מהו שם העיר שבה נמצא מגדל אייפל?",
+    "correctAnswer": "פריז",
+    "explanation": "מגדל אייפל נמצא בפריז, צרפת.",
+    "category": "travel",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Paris"]
+  },
+  {
+    "id": "travel_7",
+    "text": "איך נקרא תהליך של יציאה לטיול ארוך עם תרמיל על הגב, לרוב בתקציב נמוך?",
+    "correctAnswer": "תרמילאות",
+    "explanation": "Backpacking הוא סגנון טיול עצמאי עם ציוד בתרמיל ולרוב בתקציב נמוך.",
+    "category": "travel",
+    "difficulty": "medium",
+    "acceptableAnswers": ["Backpacking", "Backpack"]
+  },
+  {
+    "id": "travel_8",
+    "text": "איך נקרא מקום לינה זול ופופולרי אצל תרמילאים שבו יש חדרים משותפים?",
+    "correctAnswer": "הוסטל",
+    "explanation": "Hostel הוא פתרון לינה זול יחסית עם חדרים משותפים ושירותים בסיסיים.",
+    "category": "travel",
+    "difficulty": "medium",
+    "acceptableAnswers": ["Hostel"]
+  },
+  {
+    "id": "travel_9",
+    "text": "מה נקרא כרטיס שמאפשר עלייה למטוס אחרי צ'ק-אין?",
+    "correctAnswer": "כרטיס עלייה למטוס",
+    "explanation": "Boarding pass כולל שער, מושב ושעת עלייה למטוס.",
+    "category": "travel",
+    "difficulty": "hard",
+    "acceptableAnswers": ["Boarding pass", "boarding pass", "בורדינג פס"]
+  },
+  {
+    "id": "travel_10",
+    "text": "איך נקראת עיר חוף באיסטנבול שנמצאת בשתי יבשות?",
+    "correctAnswer": "איסטנבול",
+    "explanation": "איסטנבול שוכנת משני צידי הבוספורוס—באירופה ובאסיה.",
+    "category": "travel",
+    "difficulty": "medium",
+    "acceptableAnswers": ["Istanbul"]
+  }
+]

@@ -1,0 +1,92 @@
+[
+  {
+    "id": "art_1",
+    "text": "מי צייר את 'המונה ליזה'?",
+    "correctAnswer": "לאונרדו דה וינצ'י",
+    "explanation": "לאונרדו דה וינצ'י צייר את ה'מונה ליזה' בתקופת הרנסנס.",
+    "category": "art",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Leonardo da Vinci", "דה וינצ'י", "da Vinci"]
+  },
+  {
+    "id": "art_2",
+    "text": "באיזה מוזיאון בפריז מוצגת המונה ליזה?",
+    "correctAnswer": "הלובר",
+    "explanation": "מוזיאון הלובר (Louvre) הוא מהמוזיאונים המפורסמים בעולם.",
+    "category": "art",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Louvre", "Musée du Louvre"]
+  },
+  {
+    "id": "art_3",
+    "text": "איך נקרא סגנון אמנות שמתאפיין בצבעים עזים, נקודות צבע ותפיסת אור רגעית?",
+    "correctAnswer": "אימפרסיוניזם",
+    "explanation": "האימפרסיוניזם נולד בצרפת במאה ה-19 ומדגיש אור ורושם רגעי.",
+    "category": "art",
+    "difficulty": "medium",
+    "acceptableAnswers": ["Impressionism"]
+  },
+  {
+    "id": "art_4",
+    "text": "מי צייר את 'ליל כוכבים'?",
+    "correctAnswer": "וינסנט ואן גוך",
+    "explanation": "ואן גוך צייר את The Starry Night בשנת 1889.",
+    "category": "art",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Vincent van Gogh", "Van Gogh", "ואן גוך"]
+  },
+  {
+    "id": "art_5",
+    "text": "איך נקרא הזרם האמנותי שבו 'הכל יכול להיות אמנות' ולעיתים משתמשים בחפצים מוכנים?",
+    "correctAnswer": "דאדא",
+    "explanation": "דאדא (Dada) היה זרם אנטי-ממסדי שהשתמש בהומור ו'רדי-מייד'.",
+    "category": "art",
+    "difficulty": "hard",
+    "acceptableAnswers": ["Dada", "Dadaism"]
+  },
+  {
+    "id": "art_6",
+    "text": "באיזה חומר משתמשים בעיקר לפיסול קלאסי כמו פסלים יווניים?",
+    "correctAnswer": "שיש",
+    "explanation": "שיש נפוץ בפיסול קלאסי משום שהוא מאפשר ליטוש ודיוק בפרטים.",
+    "category": "art",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Marble"]
+  },
+  {
+    "id": "art_7",
+    "text": "איך נקרא ציור קיר שנעשה על טיח לח, כפי שהיה נפוץ ברנסנס?",
+    "correctAnswer": "פרסקו",
+    "explanation": "Fresco הוא טכניקה שבה מציירים על טיח רטוב כדי שהצבע ייספג בקיר.",
+    "category": "art",
+    "difficulty": "medium",
+    "acceptableAnswers": ["Fresco"]
+  },
+  {
+    "id": "art_8",
+    "text": "מי האמן המזוהה ביותר עם סגנון הפופ ארט וציורי פחיות מרק?",
+    "correctAnswer": "אנדי וורהול",
+    "explanation": "Andy Warhol הוא דמות מרכזית בפופ ארט, עם יצירות כמו Campbell's Soup Cans.",
+    "category": "art",
+    "difficulty": "medium",
+    "acceptableAnswers": ["Andy Warhol", "Warhol", "וורהול"]
+  },
+  {
+    "id": "art_9",
+    "text": "איך נקרא מבנה שמתכננים אדריכלים?",
+    "correctAnswer": "בניין",
+    "explanation": "אדריכלות עוסקת בתכנון מבנים, חללים וסביבות בנויות.",
+    "category": "art",
+    "difficulty": "easy",
+    "acceptableAnswers": ["מבנה", "Structure", "Building"]
+  },
+  {
+    "id": "art_10",
+    "text": "איך נקרא סגנון אמנות שמציג חלומות, תת-מודע ודימויים לא מציאותיים?",
+    "correctAnswer": "סוריאליזם",
+    "explanation": "סוריאליזם (Surrealism) חקר את עולם החלום והתת-מודע באמנות ובספרות.",
+    "category": "art",
+    "difficulty": "medium",
+    "acceptableAnswers": ["Surrealism"]
+  }
+]

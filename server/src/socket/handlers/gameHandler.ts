@@ -32,6 +32,11 @@ export const gameHandler = (io: Server, socket: Socket) => {
             socket.emit(SocketEvents.ROOM_ERROR, { message: "החדר לא נמצא" });
             return;
         }
+        // Only host can start the game
+        if (room.hostSocketId && room.hostSocketId !== socket.id) {
+            socket.emit(SocketEvents.ROOM_ERROR, { message: "רק המארח יכול להתחיל את המשחק" });
+            return;
+        }
         if (room.status !== "waiting"){
             socket.emit(SocketEvents.ROOM_ERROR, { message: "החדר כבר מתחיל" });
             return;

@@ -1,0 +1,92 @@
+[
+  {
+    "id": "israel_geography_1",
+    "text": "מהי עיר הבירה של ישראל?",
+    "correctAnswer": "ירושלים",
+    "explanation": "ירושלים היא עיר הבירה של ישראל (לפי החוק הישראלי) ומרכז דתי והיסטורי.",
+    "category": "israel_geography",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Jerusalem"]
+  },
+  {
+    "id": "israel_geography_2",
+    "text": "איזו עיר מכונה 'העיר הלבנה' ונמצאת על חוף הים התיכון?",
+    "correctAnswer": "תל אביב",
+    "explanation": "תל אביב מכונה 'העיר הלבנה' בזכות אדריכלות הבאוהאוס שבה.",
+    "category": "israel_geography",
+    "difficulty": "easy",
+    "acceptableAnswers": ["תל-אביב", "Tel Aviv", "Tel-Aviv"]
+  },
+  {
+    "id": "israel_geography_3",
+    "text": "איך נקרא הים המלוח במיוחד שנמצא בנקודה הנמוכה ביותר בעולם?",
+    "correctAnswer": "ים המלח",
+    "explanation": "ים המלח הוא אחד המקומות הנמוכים בעולם ומפורסם במליחות הגבוהה שלו.",
+    "category": "israel_geography",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Dead Sea"]
+  },
+  {
+    "id": "israel_geography_4",
+    "text": "איזו עיר היא הנמל המרכזי בצפון ישראל?",
+    "correctAnswer": "חיפה",
+    "explanation": "חיפה היא עיר נמל מרכזית בצפון ישראל.",
+    "category": "israel_geography",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Haifa"]
+  },
+  {
+    "id": "israel_geography_5",
+    "text": "איזו עיר הדרומית בישראל ידועה כעיר התיירות על ים סוף?",
+    "correctAnswer": "אילת",
+    "explanation": "אילת נמצאת על שפת ים סוף ונחשבת לעיר נופש ותיירות מרכזית.",
+    "category": "israel_geography",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Eilat"]
+  },
+  {
+    "id": "israel_geography_6",
+    "text": "איך נקרא האגם הגדול בישראל, המכונה גם 'ים כנרת'?",
+    "correctAnswer": "הכנרת",
+    "explanation": "הכנרת היא אגם מים מתוקים חשוב בישראל.",
+    "category": "israel_geography",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Sea of Galilee", "כנרת"]
+  },
+  {
+    "id": "israel_geography_7",
+    "text": "איזה מדבר גדול נמצא בדרום ישראל?",
+    "correctAnswer": "מדבר הנגב",
+    "explanation": "הנגב הוא המדבר הגדול בישראל ומשתרע בדרום המדינה.",
+    "category": "israel_geography",
+    "difficulty": "easy",
+    "acceptableAnswers": ["הנגב", "Negev"]
+  },
+  {
+    "id": "israel_geography_8",
+    "text": "איזו עיר מכונה 'בירת הנגב'?",
+    "correctAnswer": "באר שבע",
+    "explanation": "באר שבע נחשבת למרכז העירוני הגדול בנגב ומכונה 'בירת הנגב'.",
+    "category": "israel_geography",
+    "difficulty": "medium",
+    "acceptableAnswers": ["Beer Sheva", "באר-שבע", "Be'er Sheva"]
+  },
+  {
+    "id": "israel_geography_9",
+    "text": "איזה הר הוא הגבוה בישראל?",
+    "correctAnswer": "הר חרמון",
+    "explanation": "הר חרמון הוא הגבוה בישראל (בפסגה שבשליטה ישראלית) ומוכר גם כאתר סקי.",
+    "category": "israel_geography",
+    "difficulty": "hard",
+    "acceptableAnswers": ["חרמון", "Mount Hermon", "Hermon"]
+  },
+  {
+    "id": "israel_geography_10",
+    "text": "באיזה מחוז נמצאת העיר נתניה?",
+    "correctAnswer": "מחוז המרכז",
+    "explanation": "נתניה שוכנת לאורך חוף הים ומוגדרת במחוז המרכז בישראל.",
+    "category": "israel_geography",
+    "difficulty": "hard",
+    "acceptableAnswers": ["המרכז", "Central District"]
+  }
+]

@@ -15,21 +15,18 @@ export const Timer = ({ remainingTime, maxTime = 15 }: TimerProps) => {
     const lastTickSoundRef = useRef<number>(-1);
     const audioContextRef = useRef<AudioContext | null>(null);
 
-    // SVG circle parameters
-    const size = 100;
-    const strokeWidth = 6;
+    const size = 88;
+    const strokeWidth = 5;
     const radius = (size - strokeWidth) / 2;
     const circumference = 2 * Math.PI * radius;
 
-    // Initialize AudioContext
     const getAudioContext = useCallback(() => {
         if (!audioContextRef.current) {
-            audioContextRef.current = new (window.AudioContext || (window as any).webkitAudioContext)();
+            audioContextRef.current = new (window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext)();
         }
         return audioContextRef.current;
     }, []);
 
-    // Play tick sound
     const playTickSound = useCallback((isUrgent: boolean = false) => {
         try {
             const ctx = getAudioContext();
@@ -43,26 +40,24 @@ export const Timer = ({ remainingTime, maxTime = 15 }: TimerProps) => {
             oscillator.connect(gainNode);
             gainNode.connect(ctx.destination);
 
-            // Different sound for urgent (last 3 seconds)
             if (isUrgent) {
-                oscillator.frequency.value = 880; // Higher pitch
-                gainNode.gain.setValueAtTime(0.3, ctx.currentTime);
-                gainNode.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.15);
+                oscillator.frequency.value = 880;
+                gainNode.gain.setValueAtTime(0.25, ctx.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.12);
                 oscillator.start(ctx.currentTime);
-                oscillator.stop(ctx.currentTime + 0.15);
+                oscillator.stop(ctx.currentTime + 0.12);
             } else {
-                oscillator.frequency.value = 600; // Normal tick
-                gainNode.gain.setValueAtTime(0.15, ctx.currentTime);
-                gainNode.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.08);
+                oscillator.frequency.value = 600;
+                gainNode.gain.setValueAtTime(0.12, ctx.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.06);
                 oscillator.start(ctx.currentTime);
-                oscillator.stop(ctx.currentTime + 0.08);
+                oscillator.stop(ctx.currentTime + 0.06);
             }
-        } catch (e) {
-            console.log("Audio not supported");
+        } catch {
+            // Audio not supported
         }
     }, [getAudioContext]);
 
-    // Play end sound (time's up)
     const playEndSound = useCallback(() => {
         try {
             const ctx = getAudioContext();
@@ -70,7 +65,6 @@ export const Timer = ({ remainingTime, maxTime = 15 }: TimerProps) => {
                 ctx.resume();
             }
 
-            // Play a descending tone sequence
             const frequencies = [880, 660, 440];
             frequencies.forEach((freq, i) => {
                 const oscillator = ctx.createOscillator();
@@ -82,48 +76,42 @@ export const Timer = ({ remainingTime, maxTime = 15 }: TimerProps) => {
                 oscillator.frequency.value = freq;
                 oscillator.type = 'sine';
 
-                const startTime = ctx.currentTime + (i * 0.12);
-                gainNode.gain.setValueAtTime(0.3, startTime);
-                gainNode.gain.exponentialRampToValueAtTime(0.01, startTime + 0.2);
+                const startTime = ctx.currentTime + (i * 0.1);
+                gainNode.gain.setValueAtTime(0.25, startTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, startTime + 0.15);
 
                 oscillator.start(startTime);
-                oscillator.stop(startTime + 0.2);
+                oscillator.stop(startTime + 0.15);
             });
-        } catch (e) {
-            console.log("Audio not supported");
+        } catch {
+            // Audio not supported
         }
     }, [getAudioContext]);
 
-    // Color based on remaining time
     const getColor = () => {
-        if (displayTime <= 3) return "#ef4444"; // Red
-        if (displayTime <= 7) return "#f59e0b"; // Orange
-        return "#22c55e"; // Green
+        if (displayTime <= 3) return "#ef4444";
+        if (displayTime <= 7) return "#f59e0b";
+        return "#10b981";
     };
 
-    // Handle sound effects when displayTime changes
     useEffect(() => {
-        // Only play sounds for seconds 1-5
         if (displayTime <= 5 && displayTime > 0 && displayTime !== lastTickSoundRef.current) {
             lastTickSoundRef.current = displayTime;
             playTickSound(displayTime <= 3);
         }
-        
-        // Play end sound when time reaches 0
+
         if (displayTime === 0 && lastTickSoundRef.current !== 0) {
             lastTickSoundRef.current = 0;
             playEndSound();
         }
     }, [displayTime, playTickSound, playEndSound]);
 
-    // Reset sound ref when timer restarts
     useEffect(() => {
         if (remainingTime > 5) {
             lastTickSoundRef.current = -1;
         }
     }, [remainingTime]);
 
-    // Smooth animation loop
     useEffect(() => {
         targetTimeRef.current = remainingTime;
         lastUpdateRef.current = Date.now();
@@ -132,7 +120,7 @@ export const Timer = ({ remainingTime, maxTime = 15 }: TimerProps) => {
             const now = Date.now();
             const elapsed = (now - lastUpdateRef.current) / 1000;
             const currentTime = Math.max(0, targetTimeRef.current - elapsed);
-            
+
             setDisplayTime(Math.ceil(currentTime));
             setProgress((currentTime / maxTime) * 100);
 
@@ -150,7 +138,6 @@ export const Timer = ({ remainingTime, maxTime = 15 }: TimerProps) => {
         };
     }, [remainingTime, maxTime]);
 
-    // Cleanup audio context on unmount
     useEffect(() => {
         return () => {
             if (audioContextRef.current) {
@@ -161,6 +148,7 @@ export const Timer = ({ remainingTime, maxTime = 15 }: TimerProps) => {
 
     const strokeDashoffset = circumference - (progress / 100) * circumference;
     const color = getColor();
+    const isUrgent = displayTime <= 3 && displayTime > 0;
 
     return (
         <Box
@@ -168,11 +156,20 @@ export const Timer = ({ remainingTime, maxTime = 15 }: TimerProps) => {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                py: 2,
             }}
         >
-            <Box sx={{ position: "relative", width: size, height: size }}>
-                {/* SVG Circle */}
+            <Box
+                sx={{
+                    position: "relative",
+                    width: size,
+                    height: size,
+                    animation: isUrgent ? "pulse 0.5s ease-in-out infinite" : "none",
+                    "@keyframes pulse": {
+                        "0%, 100%": { transform: "scale(1)" },
+                        "50%": { transform: "scale(1.05)" },
+                    },
+                }}
+            >
                 <svg
                     width={size}
                     height={size}
@@ -184,11 +181,11 @@ export const Timer = ({ remainingTime, maxTime = 15 }: TimerProps) => {
                         cy={size / 2}
                         r={radius}
                         fill="none"
-                        stroke="rgba(255, 255, 255, 0.1)"
+                        stroke="rgba(255, 255, 255, 0.06)"
                         strokeWidth={strokeWidth}
                     />
-                    
-                    {/* Animated progress */}
+
+                    {/* Progress */}
                     <circle
                         cx={size / 2}
                         cy={size / 2}
@@ -201,11 +198,12 @@ export const Timer = ({ remainingTime, maxTime = 15 }: TimerProps) => {
                         strokeDashoffset={strokeDashoffset}
                         style={{
                             transition: "stroke 0.3s ease",
+                            filter: isUrgent ? `drop-shadow(0 0 8px ${color})` : "none",
                         }}
                     />
                 </svg>
 
-                {/* Time display inside */}
+                {/* Time display */}
                 <Box
                     sx={{
                         position: "absolute",
@@ -220,21 +218,14 @@ export const Timer = ({ remainingTime, maxTime = 15 }: TimerProps) => {
                     }}
                 >
                     <Typography
-                        variant="h3"
                         sx={{
                             color: color,
-                            fontWeight: "bold",
-                            fontSize: "2.2rem",
+                            fontWeight: 700,
+                            fontSize: "1.75rem",
                             lineHeight: 1,
+                            letterSpacing: "-0.02em",
                             transition: "color 0.3s ease",
-                            // Pulse animation for last 3 seconds
-                            animation: displayTime <= 3 && displayTime > 0 
-                                ? "pulse 0.5s ease-in-out infinite" 
-                                : "none",
-                            "@keyframes pulse": {
-                                "0%, 100%": { transform: "scale(1)" },
-                                "50%": { transform: "scale(1.1)" },
-                            },
+                            fontVariantNumeric: "tabular-nums",
                         }}
                     >
                         {displayTime}

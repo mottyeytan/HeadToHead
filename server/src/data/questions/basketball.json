@@ -1,0 +1,92 @@
+[
+  {
+    "id": "basketball_1",
+    "text": "מהי הליגה המקצוענית הבכירה בכדורסל בארה\"ב?",
+    "correctAnswer": "NBA",
+    "explanation": "ה-NBA היא הליגה המובילה בעולם מבחינת רמה וחשיפה.",
+    "category": "basketball",
+    "difficulty": "easy",
+    "acceptableAnswers": ["National Basketball Association"]
+  },
+  {
+    "id": "basketball_2",
+    "text": "כמה נקודות שווה קליעה מחוץ לקשת (בדרך כלל)?",
+    "correctAnswer": "3",
+    "explanation": "קליעה מעבר לקשת השלוש שווה 3 נקודות.",
+    "category": "basketball",
+    "difficulty": "easy",
+    "acceptableAnswers": ["שלוש", "שלוש נקודות"]
+  },
+  {
+    "id": "basketball_3",
+    "text": "איך נקרא מהלך שבו שחקן מטביע את הכדור לסל מלמעלה?",
+    "correctAnswer": "דאנק",
+    "explanation": "Dunk הוא מהלך עוצמתי שבו השחקן מכניס את הכדור ישירות לסל מלמעלה.",
+    "category": "basketball",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Dunk", "הטבעה"]
+  },
+  {
+    "id": "basketball_4",
+    "text": "איזה שחקן מכונה לעיתים 'מלך הכדורסל' ונחשב לאחד הגדולים אי פעם?",
+    "correctAnswer": "מייקל ג'ורדן",
+    "explanation": "מייקל ג'ורדן זכה ב-6 אליפויות NBA עם שיקגו בולס ונחשב לאגדה.",
+    "category": "basketball",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Michael Jordan", "Jordan", "ג'ורדן"]
+  },
+  {
+    "id": "basketball_5",
+    "text": "איך נקרא הקו שממנו זורקים זריקות עונשין?",
+    "correctAnswer": "קו העונשין",
+    "explanation": "Free throw line הוא הקו הקבוע שממנו מבצעים זריקות עונשין.",
+    "category": "basketball",
+    "difficulty": "medium",
+    "acceptableAnswers": ["Free throw line", "קו זריקות עונשין"]
+  },
+  {
+    "id": "basketball_6",
+    "text": "כמה שחקנים מכל קבוצה נמצאים על המגרש במשחק כדורסל?",
+    "correctAnswer": "5",
+    "explanation": "בכדורסל משחקים 5 שחקנים על המגרש לכל קבוצה.",
+    "category": "basketball",
+    "difficulty": "easy",
+    "acceptableAnswers": ["חמש", "חמישה"]
+  },
+  {
+    "id": "basketball_7",
+    "text": "איך נקרא מהלך שבו שחקן מוסר כדור שמוביל לסל קל?",
+    "correctAnswer": "אסיסט",
+    "explanation": "Assist הוא מסירה שמובילה ישירות לקליעה.",
+    "category": "basketball",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Assist"]
+  },
+  {
+    "id": "basketball_8",
+    "text": "איזו עמדה בדרך כלל מנהלת את המשחק ומובילה כדור?",
+    "correctAnswer": "רכז",
+    "explanation": "הרכז (Point Guard) מוביל את הכדור ומנהל את ההתקפה.",
+    "category": "basketball",
+    "difficulty": "medium",
+    "acceptableAnswers": ["Point Guard", "PG"]
+  },
+  {
+    "id": "basketball_9",
+    "text": "איך נקרא מצב שבו השעון להתקפה נגמר ולא נזרקה זריקה בזמן?",
+    "correctAnswer": "שעון זריקות",
+    "explanation": "ב-NBA יש 24 שניות להתקפה; אם הזמן נגמר זו עבירה (shot clock violation).",
+    "category": "basketball",
+    "difficulty": "hard",
+    "acceptableAnswers": ["Shot clock", "Shot clock violation", "24 שניות"]
+  },
+  {
+    "id": "basketball_10",
+    "text": "באיזו עיר משחקת קבוצת 'לוס אנג'לס לייקרס'?",
+    "correctAnswer": "לוס אנג'לס",
+    "explanation": "ה-Lakers הם אחת הקבוצות המפורסמות ב-NBA וממוקמים בלוס אנג'לס.",
+    "category": "basketball",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Los Angeles", "LA"]
+  }
+]

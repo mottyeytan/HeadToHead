@@ -1,0 +1,92 @@
+[
+  {
+    "id": "israel_culture_1",
+    "text": "איך נקרא יום הזיכרון לשואה ולגבורה בישראל?",
+    "correctAnswer": "יום השואה",
+    "explanation": "יום הזיכרון לשואה ולגבורה נקרא בקיצור 'יום השואה'.",
+    "category": "israel_culture",
+    "difficulty": "easy",
+    "acceptableAnswers": ["יום הזיכרון לשואה ולגבורה"]
+  },
+  {
+    "id": "israel_culture_2",
+    "text": "איזו תוכנית ריאליטי ישראלית עוסקת במתמודדים בבית סגור ומצולמת 24/7?",
+    "correctAnswer": "האח הגדול",
+    "explanation": "האח הגדול הוא פורמט ריאליטי פופולרי בישראל ובעולם.",
+    "category": "israel_culture",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Big Brother"]
+  },
+  {
+    "id": "israel_culture_3",
+    "text": "איך נקרא הכינוי לסנדוויץ' בפיתה עם פלאפל, חומוס וסלטים?",
+    "correctAnswer": "פלאפל בפיתה",
+    "explanation": "זהו מאכל רחוב ישראלי קלאסי ונפוץ מאוד.",
+    "category": "israel_culture",
+    "difficulty": "easy",
+    "acceptableAnswers": ["פיתה עם פלאפל", "פלאפל"]
+  },
+  {
+    "id": "israel_culture_4",
+    "text": "איזה סופר ישראלי זכה בפרס נובל לספרות בשנת 1966?",
+    "correctAnswer": "ש\"י עגנון",
+    "explanation": "ש\"י עגנון זכה בפרס נובל לספרות בשנת 1966 (ביחד עם נלי זקס).",
+    "category": "israel_culture",
+    "difficulty": "medium",
+    "acceptableAnswers": ["עגנון", "Shmuel Yosef Agnon", "Agnon"]
+  },
+  {
+    "id": "israel_culture_5",
+    "text": "איך נקרא המאכל הישראלי העשוי חציל קלוי, טחינה ותבלינים?",
+    "correctAnswer": "חציל בטחינה",
+    "explanation": "חציל בטחינה הוא סלט מוכר במטבח הישראלי והמזרח-תיכוני.",
+    "category": "israel_culture",
+    "difficulty": "easy",
+    "acceptableAnswers": ["סלט חצילים בטחינה", "חצילים בטחינה"]
+  },
+  {
+    "id": "israel_culture_6",
+    "text": "איך נקרא חג האורות היהודי שנמשך שמונה ימים?",
+    "correctAnswer": "חנוכה",
+    "explanation": "חנוכה נחגג שמונה ימים ומזוהה עם הדלקת נרות וסופגניות.",
+    "category": "israel_culture",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Hanukkah", "Chanukah"]
+  },
+  {
+    "id": "israel_culture_7",
+    "text": "איך נקראת תחרות השירה האירופית שבה ישראל משתתפת וזכתה בה מספר פעמים?",
+    "correctAnswer": "אירוויזיון",
+    "explanation": "באירוויזיון ישראל זכתה בין היתר ב-1978, 1979, 1998 ו-2018.",
+    "category": "israel_culture",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Eurovision"]
+  },
+  {
+    "id": "israel_culture_8",
+    "text": "מהו שם הכינוי ליום העצמאות בישראל?",
+    "correctAnswer": "יום העצמאות",
+    "explanation": "יום העצמאות הוא החג הלאומי של ישראל ומצוין בהופעות, מנגל וזיקוקים.",
+    "category": "israel_culture",
+    "difficulty": "easy",
+    "acceptableAnswers": ["עצמאות"]
+  },
+  {
+    "id": "israel_culture_9",
+    "text": "איך נקרא חטיף הבוטנים הישראלי המפורסם שמזוהה עם צבע אדום?",
+    "correctAnswer": "במבה",
+    "explanation": "'במבה' הוא חטיף בוטנים ישראלי מוכר מאוד.",
+    "category": "israel_culture",
+    "difficulty": "easy",
+    "acceptableAnswers": ["Bamba"]
+  },
+  {
+    "id": "israel_culture_10",
+    "text": "איך נקרא המוסד שבו שופטים תיקים בישראל והפסגה שלו היא בית המשפט העליון?",
+    "correctAnswer": "מערכת המשפט",
+    "explanation": "בישראל מערכת המשפט כוללת ערכאות שונות, ובראשן בית המשפט העליון.",
+    "category": "israel_culture",
+    "difficulty": "hard",
+    "acceptableAnswers": ["בתי המשפט", "בית משפט", "המערכת המשפטית"]
+  }
+]
